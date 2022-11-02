@@ -1,0 +1,33 @@
+.search-bar {
+    width: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #F6F7F8;
+    border: #EDEFF1 1px solid;
+    border-radius: 15px;
+    transition: 0.1s;
+}
+
+.search-icon {
+    font-size: 1.4rem;
+}
+
+.search-input {
+    width: 90%;
+    background-color: transparent;
+    border: none;
+    padding: 0.4rem;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-bar:focus-within {
+    border: #1484D6 1px solid;
+    transition: 0.1s;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
