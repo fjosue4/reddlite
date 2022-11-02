@@ -7,7 +7,7 @@ const initialState = {
 }
 
 const getCommunityData = createAsyncThunk(
-  'index/getCommunityData',
+  'community/getCommunityData',
   async community => {
     const res = await fetchCommunityData(community)
     return res.data

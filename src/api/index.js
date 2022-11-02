@@ -14,4 +14,6 @@ export const fetchPostData = (community, postPath) =>
     'https://www.reddit.com/r/Cricket/comments/yjrp9s/daily_general_discussion_and_match_links_thread/.json'
   )
 
+export const fetchUserData = user => API.get(`/user/${user}/.json`)
+
 // /r/${community}/comments/${postPath}/.json

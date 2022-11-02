@@ -7,6 +7,7 @@ import { getHomeData } from '../../store/home/homeSlice'
 
 import { getPostData } from '../../store/post/postSlice'
 import { getCommunityData } from '../../store/community/communitySlice'
+import { getUserData } from '../../store/user/userSlice'
 
 function NavBar (props) {
   const homeData = useSelector(state => state.home)
@@ -37,6 +38,13 @@ function NavBar (props) {
     dispatch(getCommunityData('Cricket'))
   }, [dispatch, getCommunityData])
   console.log(community)
+
+  // Fetching community data just to test
+  const user = useSelector(state => state.user)
+  useEffect(() => {
+    dispatch(getUserData('CricketMatchBot'))
+  }, [dispatch, getUserData])
+  console.log(user)
 
   return (
     <div className='nav-bar'>

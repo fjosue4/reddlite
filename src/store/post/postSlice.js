@@ -7,7 +7,7 @@ const initialState = {
 }
 
 const getPostData = createAsyncThunk(
-  'index/getPostData',
+  'post/getPostData',
   async (community, postPath) => {
     const res = await fetchPostData(community, postPath)
     return res.data

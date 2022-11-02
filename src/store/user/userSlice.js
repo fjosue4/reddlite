@@ -1,35 +1,35 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { fetchHomeData } from '../../api'
+import { fetchUserData } from '../../api'
 const initialState = {
   loading: false,
   data: [],
   error: null
 }
 
-const getHomeData = createAsyncThunk('home/getHomeData', async () => {
-  const res = await fetchHomeData()
+const getUserData = createAsyncThunk('user/getUserData', async user => {
+  const res = await fetchUserData(user)
   return res.data
 })
 
-const homeSlice = createSlice({
-  name: 'home',
+const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(getHomeData.pending, state => {
+    builder.addCase(getUserData.pending, state => {
       state.loading = true
     })
-    builder.addCase(getHomeData.fulfilled, (state, action) => {
+    builder.addCase(getUserData.fulfilled, (state, action) => {
       state.loading = false
       state.data = action.payload
       state.success = true
     })
-    builder.addCase(getHomeData.rejected, (state, action) => {
+    builder.addCase(getUserData.rejected, (state, action) => {
       state.loading = false
       state.error = action.payload
     })
   }
 })
 
-export default homeSlice.reducer
-export { getHomeData }
+export default userSlice.reducer
+export { getUserData }
