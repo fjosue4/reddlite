@@ -1,4 +1,8 @@
-import { configureStore } from '@reduxjs/toolkit'
+import {
+  configureStore,
+  combineReducers,
+  getDefaultMiddleware
+} from '@reduxjs/toolkit'
 
 import homeReducer from './home/homeSlice'
 import searchReducer from './search/searchSlice'
@@ -7,15 +11,44 @@ import postReducer from './post/postSlice'
 import userReducer from './user/userSlice'
 import styleReducer from './styleSlice'
 
-const store = configureStore({
-  reducer: {
-    home: homeReducer,
-    search: searchReducer,
-    community: communityReducer,
-    post: postReducer,
-    user: userReducer,
-    style: styleReducer
-  }
+// Persistance Code
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER
+} from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage,
+  whitelist: ['style']
+}
+
+const rootReducer = combineReducers({
+  home: homeReducer,
+  search: searchReducer,
+  community: communityReducer,
+  post: postReducer,
+  user: userReducer,
+  style: styleReducer
 })
 
-export default store
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+      }
+    })
+})
+
+export let persistor = persistStore(store)

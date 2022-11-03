@@ -1,8 +1,8 @@
-import logo from './logo.svg';
-import { useEffect, useState } from 'react';
-import './App.css';
-import NavBar from './components/NavBar/NavBar';
-import { useSelector } from 'react-redux';
+import logo from './logo.svg'
+import { useEffect, useState } from 'react'
+import './App.css'
+import NavBar from './components/NavBar/NavBar'
+import { useSelector } from 'react-redux'
 
 function App () {
   // fetching theme state from redux-store
@@ -14,15 +14,15 @@ function App () {
   // To set the style of theme we can dispatch change action at toggleTheme component
   useEffect(() => {
     setTheme(style.theme)
-  }, [style,])
+  }, [style])
 
   // const toggleTheme = () => {
   //   setTheme(curr => (curr === 'light' ? 'dark' : 'light'))
   // }
   return (
-      <div className='App' id={theme}>
-        <NavBar />
-      </div>
+    <div className='App' id={theme}>
+      <NavBar />
+    </div>
   )
 }
 
