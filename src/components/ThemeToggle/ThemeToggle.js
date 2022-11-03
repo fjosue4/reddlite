@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './ThemeToggle.css';
 import { Icon } from "@iconify/react";
 
+export let currentTheme;
+
 function ThemeToggle () {
+
     return (
         <div className="theme-toggle">
             <div className="day-mode active">
