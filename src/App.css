@@ -1,0 +1,8 @@
+* {
+    transition: background-color 0.2s;
+}
+
+#dark {
+    background-color: #212121 !important;
+    color: #fff !important;
+}
