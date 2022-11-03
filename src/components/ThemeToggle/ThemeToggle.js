@@ -1,21 +1,33 @@
-import React, { useEffect, useState } from "react";
-import './ThemeToggle.css';
-import { Icon } from "@iconify/react";
+import React, { useEffect, useState } from 'react'
+import './ThemeToggle.css'
+import { Icon } from '@iconify/react'
 
-export let currentTheme;
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { styleActions } from '../../store/styleSlice'
+
+export let currentTheme
 
 function ThemeToggle () {
+  const dispatch = useDispatch()
+  const { theme } = useSelector(state => state.style)
 
-    return (
-        <div className="theme-toggle">
-            <div className="day-mode active">
-                <Icon icon="clarity:sun-solid" />
-            </div>
-            <div className="night-mode inactive">
-                <Icon icon="akar-icons:moon-fill" />
-            </div>
-        </div>
-    )
+  const handleTheme = () => {
+    theme === 'light'
+      ? dispatch(styleActions.toggleTheme('dark'))
+      : dispatch(styleActions.toggleTheme('light'))
+  }
+
+  return (
+    <div onClick={handleTheme} className='theme-toggle'>
+      <div className='day-mode active'>
+        <Icon icon='clarity:sun-solid' />
+      </div>
+      <div className='night-mode inactive'>
+        <Icon icon='akar-icons:moon-fill' />
+      </div>
+    </div>
+  )
 }
 
-export default ThemeToggle;
+export default ThemeToggle

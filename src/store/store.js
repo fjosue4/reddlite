@@ -5,6 +5,7 @@ import searchReducer from './search/searchSlice'
 import communityReducer from './community/communitySlice'
 import postReducer from './post/postSlice'
 import userReducer from './user/userSlice'
+import styleReducer from './styleSlice'
 
 const store = configureStore({
   reducer: {
@@ -12,7 +13,8 @@ const store = configureStore({
     search: searchReducer,
     community: communityReducer,
     post: postReducer,
-    user: userReducer
+    user: userReducer,
+    style: styleReducer
   }
 })
 
