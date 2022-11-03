@@ -1,12 +1,8 @@
-import logo from './logo.svg'
-import { createContext, useEffect, useState } from 'react'
-import './App.css'
-import NavBar from './components/NavBar/NavBar'
-import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-import { styleActions } from './store/styleSlice'
-
-const ThemeContext = createContext(null)
+import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import './App.css';
+import NavBar from './components/NavBar/NavBar';
+import { useSelector } from 'react-redux';
 
 function App () {
   // fetching theme state from redux-store
@@ -24,11 +20,9 @@ function App () {
   //   setTheme(curr => (curr === 'light' ? 'dark' : 'light'))
   // }
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
       <div className='App' id={theme}>
         <NavBar />
       </div>
-    </ThemeContext.Provider>
   )
 }
 

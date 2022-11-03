@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { styleActions } from '../../store/styleSlice'
 
-export let currentTheme
-
 function ThemeToggle () {
   const dispatch = useDispatch()
   const { theme } = useSelector(state => state.style)
