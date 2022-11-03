@@ -26,7 +26,7 @@ function SearchBar (props) {
         placeholder='Search ReddLite'
         className='search-input'
       ></input>
-      <button onClick={handleSearch}>Search</button>
+      {/* <button onClick={handleSearch}>Search</button> */}
     </div>
   )
 }

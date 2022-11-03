@@ -8,6 +8,7 @@ import { getHomeData } from '../../store/home/homeSlice'
 import { getPostData } from '../../store/post/postSlice'
 import { getCommunityData } from '../../store/community/communitySlice'
 import { getUserData } from '../../store/user/userSlice'
+import ThemeToggle from '../ThemeToggle/ThemeToggle'
 
 function NavBar (props) {
   const homeData = useSelector(state => state.home)
@@ -20,7 +21,7 @@ function NavBar (props) {
   }, [dispatch, getHomeData])
   console.log(homeData)
 
-  // Fetching post data just to test
+  // Fetching post data just to test ... Got it!
   const post = useSelector(state => state.post)
   useEffect(() => {
     dispatch(
@@ -52,6 +53,7 @@ function NavBar (props) {
         <img src={logo} alt='reddlite logo' />
       </div>
       <SearchBar />
+      <ThemeToggle />
     </div>
   )
 }

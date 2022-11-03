@@ -8,6 +8,7 @@
     border: #EDEFF1 1px solid;
     border-radius: 15px;
     transition: 0.1s;
+    margin: 0 4rem;
 }
 
 .search-icon {

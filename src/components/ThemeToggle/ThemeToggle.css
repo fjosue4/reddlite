@@ -1,0 +1,39 @@
+.theme-toggle {
+    display: flex;
+    width: 8rem;
+    background-color: #F6F7F8;
+    border: #EDEFF1 1px solid;
+    border-radius: 25px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.day-mode {
+    color: #E4D335;
+    transition: 0.2s;
+}
+
+.night-mode {
+    color: #fff;
+    transition: 0.2s;
+}
+
+.day-mode, .night-mode {
+    display: flex;
+    margin: 0;
+    padding: 0 0.8rem;
+    font-size: 1.6rem;
+}
+
+.active {
+    font-size: 2rem;
+    background-color: #1484D6;
+    border: #1484D6 1px solid; 
+    border-radius: inherit;
+    padding: 4px 1.4rem;
+}
+
+.inactive {
+    color: #BABABA !important;
+    transition: 0.2s;
+}
