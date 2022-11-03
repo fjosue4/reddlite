@@ -12,7 +12,7 @@ function App() {
   }
   return (
     <ThemeContext.Provider value={{theme, setTheme}}>
-    <div className="App">
+    <div className="App" id={theme}>
       <NavBar />
     </div>
     </ThemeContext.Provider>
