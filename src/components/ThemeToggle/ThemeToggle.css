@@ -1,21 +1,30 @@
 .theme-toggle {
     display: flex;
     width: 8rem;
-    background-color: #F6F7F8;
-    border: #EDEFF1 1px solid;
+    background-color: var(--boxes-light-bg);
+    border: var(--light-outline) 1px solid;
     border-radius: 25px;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    overflow: hidden;
+    min-height: 40px;
+}
+
+#dark .theme-toggle {
+    background-color: var(--boxes-dark-bg);
+    border: var(--dark-outline) 1px solid;
 }
 
 .day-mode {
     color: #E4D335;
+    border-radius: inherit;
     transition: 0.2s;
 }
 
 .night-mode {
     color: #fff;
+    border-radius: inherit;
     transition: 0.2s;
 }
 
@@ -36,7 +45,6 @@
 
 #light .night-mode {
     color: #BABABA !important;
-    transition: 0.2s;
 }
 
 #dark .night-mode {

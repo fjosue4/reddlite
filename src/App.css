@@ -2,7 +2,23 @@
     transition: background-color 0.2s;
 }
 
+:root {
+    --primary-color: #1484D6;
+    --light-color: #000;
+    --dark-color: #fff;
+    --light-bg: #fff;
+    --dark-bg: #212121;
+    --boxes-light-bg: #F6F7F8;
+    --boxes-dark-bg: #424242;
+    --light-outline: #EDEFF1;
+    --dark-outline: #878787;
+}
+
+#light {
+    background-color: var(--light-bg) !important;
+}
+
 #dark {
-    background-color: #212121 !important;
+    background-color: var(--dark-bg) !important;
     color: #fff !important;
 }

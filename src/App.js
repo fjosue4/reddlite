@@ -21,7 +21,7 @@ function App () {
   // }
   return (
     <div className='App' id={theme}>
-      <NavBar />
+      <NavBar theme={theme}/>
     </div>
   )
 }
