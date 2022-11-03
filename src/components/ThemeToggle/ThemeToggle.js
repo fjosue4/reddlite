@@ -18,10 +18,10 @@ function ThemeToggle () {
 
   return (
     <div onClick={handleTheme} className='theme-toggle'>
-      <div className='day-mode active'>
+      <div className='day-mode'>
         <Icon icon='clarity:sun-solid' />
       </div>
-      <div className='night-mode inactive'>
+      <div className='night-mode'>
         <Icon icon='akar-icons:moon-fill' />
       </div>
     </div>
