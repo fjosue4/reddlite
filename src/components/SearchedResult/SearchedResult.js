@@ -20,41 +20,44 @@ const SearchedResult = () => {
     <div>
       {data?.map(d => (
         <>
+          {/* Checking if the search result is user type or community type */}
           {d.kind === 't2' ? (
             <>
-              <h1>
-                User
-                <br />
+              {/* Type of content */}
+              <h1>User</h1>
+              {/* Karma of content */}
+              <div>
                 Karma {numFormatter(d.data.link_karma + d.data.comment_karma)}
-                <br />
-                Name u/{d.data.name}
-                <br />
-              </h1>
-
-              <ReactImageFallback
-                src={
-                  d.data.snoovatar_img?.trim() === ''
-                    ? d.data.icon_img
-                    : d.data.snoovatar_img
-                }
-                fallbackImage='https://www.redditstatic.com/avatars/defaults/v2/avatar_default_4.png'
-              />
-              <hr />
+              </div>
+              {/* UserName */}
+              <div>u/{d.data.name}</div>
+              {/* Image or Icon */}
+              <div>
+                <ReactImageFallback
+                  src={
+                    d.data.snoovatar_img?.trim() === ''
+                      ? d.data.icon_img
+                      : d.data.snoovatar_img
+                  }
+                  fallbackImage='https://www.redditstatic.com/avatars/defaults/v2/avatar_default_4.png'
+                />
+              </div>
             </>
           ) : (
             <>
-              <h1>
-                Community {d.data.subreddit_type}
-                <br />
-                {d.data.display_name_prefixed}
-                <br />
-                {numFormatter(d.data.subscribers)}
-              </h1>
-              <ReactImageFallback
-                src={d.data.icon_img}
-                fallbackImage='https://www.redditstatic.com/avatars/defaults/v2/avatar_default_4.png'
-              />
-              <hr />
+              {/* Type of content */}
+              <h1>Community</h1>
+              {/* Subscriber or member count for the community */}
+              <div>{numFormatter(d.data.subscribers)}</div>
+              {/* Display name of the community */}
+              <div>{d.data.display_name_prefixed}</div>
+              {/* Icon  of the community */}
+              <div>
+                <ReactImageFallback
+                  src={d.data.icon_img}
+                  fallbackImage='https://www.redditstatic.com/avatars/defaults/v2/avatar_default_4.png'
+                />
+              </div>
             </>
           )}
         </>
