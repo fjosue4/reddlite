@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactImageFallback from 'react-image-fallback'
 import { useSelector } from 'react-redux'
+import './SearchedResult.css'
 
 const SearchedResult = () => {
   const { data } = useSelector(state => state.search)
@@ -17,7 +18,7 @@ const SearchedResult = () => {
   }
 
   return (
-    <div>
+    <div className='search-result'>
       {data?.map(d => (
         <>
           {/* Checking if the search result is user type or community type */}
