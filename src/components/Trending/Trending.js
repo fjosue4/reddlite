@@ -2,10 +2,10 @@ import React from "react";
 
 function Trending () {
 
-    let backgroundImage1;
-    let backgroundImage2;
-    let backgroundImage3;
-    let backgroundImage4;
+    let backgroundImage1 = "https://i.stack.imgur.com/sXK51.png";
+    let backgroundImage2 = "https://i.stack.imgur.com/sXK51.png";
+    let backgroundImage3 = "https://i.stack.imgur.com/sXK51.png";
+    let backgroundImage4 = "https://i.stack.imgur.com/sXK51.png";
 
     let trend1;
     let trend2;
@@ -16,7 +16,7 @@ function Trending () {
         <div className="trending-section">
             <h4>Trending</h4>
             <div className="trendings">
-                <div className="trending" style={{ "backgroundImage": { backgroundImage1 }}}>
+                <div className="trending" style={{ "backgroundImage": `url(${backgroundImage1})`}}>
                     <h3>Title 1</h3>
                     <p>Small description of trending</p>
                     <div className="trend">
@@ -25,7 +25,7 @@ function Trending () {
                     </div>
                 </div>
                 
-                <div className="trending" style={{ "backgroundImage": { backgroundImage2 }}}>
+                <div className="trending" style={{ "backgroundImage": `url(${backgroundImage2})`}}>
                     <h3>Title 2</h3>
                     <p>Small description of trending</p>
                     <div className="trend">
@@ -34,7 +34,7 @@ function Trending () {
                     </div>
                 </div>
 
-                <div className="trending" style={{ "backgroundImage": { backgroundImage3 }}}>
+                <div className="trending" style={{ "backgroundImage": `url(${backgroundImage3})`}}>
                     <h3>Title 3</h3>
                     <p>Small description of trending</p>
                     <div className="trend">
@@ -43,7 +43,7 @@ function Trending () {
                     </div>
                 </div>
 
-                <div className="trending" style={{ "backgroundImage": { backgroundImage4 }}}>
+                <div className="trending" style={{ "backgroundImage": `url(${backgroundImage4})`}}>
                     <h3>Title 4</h3>
                     <p>Small description of trending</p>
                     <div className="trend">
