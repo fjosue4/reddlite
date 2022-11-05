@@ -11,8 +11,9 @@ function SearchBar (props) {
   const searchedContent = useSelector(state => state.search)
   const dispatch = useDispatch()
 
-  const handleSearch = e => {
-    dispatch(getSearchedData(searchTerm))
+  const handleChange = e => {
+    setSearchTerm(e.target.value)
+    dispatch(getSearchedData(`q=${searchTerm}`))
   }
   console.log(searchedContent)
 
@@ -20,7 +21,7 @@ function SearchBar (props) {
     <div className='search-bar'>
       <Icon icon='ant-design:search-outlined' className='search-icon' />
       <input
-        onChange={e => setSearchTerm(e.target.value)}
+        onChange={handleChange}
         value={searchTerm}
         type='search'
         placeholder='Search ReddLite'

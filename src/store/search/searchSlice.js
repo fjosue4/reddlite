@@ -6,11 +6,36 @@ const initialState = {
   error: null
 }
 
+function shuffle (array) {
+  let currentIndex = array.length,
+    randomIndex
+
+  // While there remain elements to shuffle.
+  while (currentIndex !== 0) {
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex)
+    currentIndex--
+
+    // And swap it with the current element.
+    ;[array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex]
+    ]
+  }
+
+  return array
+}
+
 const getSearchedData = createAsyncThunk(
   'index/getSearchedData',
   async searchTerm => {
-    const res = await fetchSearchedData(searchTerm)
-    return res.data
+    const resByCommunites = await fetchSearchedData(`${searchTerm}&&type=sr`)
+    const resByUser = await fetchSearchedData(`${searchTerm}&type=user`)
+
+    return shuffle([
+      ...resByCommunites.data.data.children,
+      ...resByUser.data.data.children
+    ]).slice(0, 25)
   }
 )
 

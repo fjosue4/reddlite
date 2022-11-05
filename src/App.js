@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import { useSelector } from 'react-redux'
+import SearchedResult from './components/SearchedResult/SearchedResult'
 
 function App () {
   // fetching theme state from redux-store
@@ -22,6 +23,7 @@ function App () {
   return (
     <div className='App' id={theme}>
       <NavBar theme={theme}/>
+      <SearchedResult/>
     </div>
   )
 }

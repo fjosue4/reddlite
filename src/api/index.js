@@ -5,7 +5,7 @@ const API = axios.create({ baseURL: 'https://www.reddit.com/' })
 export const fetchHomeData = () => API.get('/.json')
 
 export const fetchSearchedData = searchTerm =>
-  API.get(`/search.json?q=${searchTerm}`)
+  API.get(`/search.json?${searchTerm}`)
 
 export const fetchCommunityData = community => API.get(`/r/${community}/.json`)
 
@@ -15,5 +15,11 @@ export const fetchPostData = (community, postPath) =>
   )
 
 export const fetchUserData = user => API.get(`/user/${user}/.json`)
+
+
+
+
+
+
 
 // /r/${community}/comments/${postPath}/.json
