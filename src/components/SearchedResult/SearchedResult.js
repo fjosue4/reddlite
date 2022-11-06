@@ -2,6 +2,7 @@ import React from 'react'
 import ReactImageFallback from 'react-image-fallback'
 import { useSelector } from 'react-redux'
 import './SearchedResult.css'
+import { Icon } from '@iconify/react'
 
 const SearchedResult = () => {
   const { data } = useSelector(state => state.search)
@@ -18,23 +19,14 @@ const SearchedResult = () => {
   }
 
   return (
-    <div className='search-result'>
+    <div className='all-search-results'>
       {data?.map(d => (
-        <>
+        <div className='search-results-container'>
           {/* Checking if the search result is user type or community type */}
           {d.kind === 't2' ? (
-            <>
-              {/* Type of content */}
-              <h1>User</h1>
-              {/* Karma of content */}
-              <div>
-                Karma {numFormatter(d.data.link_karma + d.data.comment_karma)}
-              </div>
-              {/* UserName */}
-              <div>u/{d.data.name}</div>
+            <div className='search-result search-user'>
               {/* Image or Icon */}
-              <div>
-                <ReactImageFallback
+              <ReactImageFallback
                   src={
                     d.data.snoovatar_img?.trim() === ''
                       ? d.data.icon_img
@@ -42,26 +34,38 @@ const SearchedResult = () => {
                   }
                   fallbackImage='https://www.redditstatic.com/avatars/defaults/v2/avatar_default_4.png'
                 />
-              </div>
-            </>
-          ) : (
-            <>
+                <div className='search-content'>
+                {/* UserName */}
+              u/{d.data.name}
               {/* Type of content */}
-              <h1>Community</h1>
-              {/* Subscriber or member count for the community */}
-              <div>{numFormatter(d.data.subscribers)}</div>
-              {/* Display name of the community */}
-              <div>{d.data.display_name_prefixed}</div>
+              <div className='search-category'>
+              <span>User</span>
+              <Icon icon="akar-icons:circle-fill" className='circle-divider' />
+                {/* Karma of content */}
+                {numFormatter(d.data.link_karma + d.data.comment_karma)} Karma 
+              </div>
+              </div>
+            </div>
+          ) : (
+            <div className='search-result search-community'>
               {/* Icon  of the community */}
-              <div>
-                <ReactImageFallback
+              <ReactImageFallback
                   src={d.data.icon_img}
                   fallbackImage='https://www.redditstatic.com/avatars/defaults/v2/avatar_default_4.png'
                 />
+              <div className='search-content'>
+              {/* Display name of the community */}
+              {d.data.display_name_prefixed}
+                <div className='search-category'>
+                <span>Community</span>
+                <Icon icon="akar-icons:circle-fill" className='circle-divider' />
+                {/* Subscriber or member count for the community */}
+                {numFormatter(d.data.subscribers)}
               </div>
-            </>
+              </div>
+            </div>
           )}
-        </>
+        </div>
       ))}
     </div>
   )
