@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import { useSelector } from 'react-redux'
-import SearchedResult from './components/SearchedResult/SearchedResult'
 import Trending from './components/Trending/Trending'
 
 function App () {
@@ -24,7 +23,6 @@ function App () {
   return (
     <div className='App' id={theme}>
       <NavBar theme={theme} />
-      <SearchedResult />
       <Trending />
     </div>
   )

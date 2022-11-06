@@ -71,4 +71,4 @@ const SearchedResult = () => {
   )
 }
 
-export default SearchedResult
+export default SearchedResult;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Icon } from '@iconify/react'
+import SearchedResult from '../SearchedResult/SearchedResult'
 import './SearchBar.css'
 
 import { useSelector, useDispatch } from 'react-redux'
@@ -18,6 +19,7 @@ function SearchBar (props) {
   console.log(searchedContent)
 
   return (
+    <div>
     <div className='search-bar'>
       <Icon icon='ant-design:search-outlined' className='search-icon' />
       <input
@@ -28,6 +30,8 @@ function SearchBar (props) {
         className='search-input'
       ></input>
       {/* <button onClick={handleSearch}>Search</button> */}
+      </div>
+      <SearchedResult />
     </div>
   )
 }
