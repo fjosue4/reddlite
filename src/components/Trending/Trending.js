@@ -1,4 +1,5 @@
 import React from "react";
+import './Trending.css';
 
 function Trending () {
 
@@ -7,20 +8,22 @@ function Trending () {
     let backgroundImage3 = "https://i.stack.imgur.com/sXK51.png";
     let backgroundImage4 = "https://i.stack.imgur.com/sXK51.png";
 
-    let trend1;
+    let trend1 = "https://img.freepik.com/free-photo/dirty-pattern-paint-room-block_1203-5709.jpg";
     let trend2;
     let trend3;
     let trend4;
 
     return (
         <div className="trending-section">
-            <h4>Trending</h4>
+             <div className="trending-title">
+             <p>Trending</p>
+             </div>
             <div className="trendings">
                 <div className="trending" style={{ "backgroundImage": `url(${backgroundImage1})`}}>
-                    <h3>Title 1</h3>
-                    <p>Small description of trending</p>
+                    <h3>Article Title</h3>
+                    <p>Article brief in two lines second line</p>
                     <div className="trend">
-                    <img src={trend1}/>
+                    <img src={trend1} alt="trendicon"/>
                     <a href=""><span>r/trend</span></a>
                     </div>
                 </div>
@@ -29,7 +32,7 @@ function Trending () {
                     <h3>Title 2</h3>
                     <p>Small description of trending</p>
                     <div className="trend">
-                    <img src={trend2}/>
+                    <img src={trend2} alt="trendicon"/>
                     <a href=""><span>r/trend</span></a>
                     </div>
                 </div>
@@ -38,7 +41,7 @@ function Trending () {
                     <h3>Title 3</h3>
                     <p>Small description of trending</p>
                     <div className="trend">
-                    <img src={trend3}/>
+                    <img src={trend3} alt="trendicon"/>
                     <a href=""><span>r/trend</span></a>
                     </div>
                 </div>
@@ -47,7 +50,7 @@ function Trending () {
                     <h3>Title 4</h3>
                     <p>Small description of trending</p>
                     <div className="trend">
-                    <img src={trend4}/>
+                    <img src={trend4} alt="trendicon"/>
                     <a href=""><span>r/trend</span></a>
                     </div>
                 </div>

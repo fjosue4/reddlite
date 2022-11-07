@@ -23,7 +23,9 @@ function App () {
   return (
     <div className='App' id={theme}>
       <NavBar theme={theme} />
+      <div className='app-body'>
       <Trending />
+      </div>
     </div>
   )
 }

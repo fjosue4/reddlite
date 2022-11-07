@@ -1,0 +1,68 @@
+.trending-section {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.trending-title  p {
+    margin-bottom: 5px;
+}
+
+.trendings {
+    display: flex;
+    position: relative;
+}
+
+.trending:hover {
+    background-color: whitesmoke;
+}
+
+.trending {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 20px 10px;
+    margin: 5px;
+    border-radius: 8px;
+    position: sticky;
+    width: 100%;
+    justify-content: flex-end;
+    color: #fff !important;
+}
+
+.trending > h3 {
+    font-size: 14px;
+    margin: 0px !important;
+}
+
+.trending > p {
+    font-size: 12px;
+}
+
+.trending > a {
+    font-size:5px;
+}
+
+.trend {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.trend > a {
+    font-weight: 300;
+    font-size: 14px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.trend > img {
+    display: flex;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+
+}
+

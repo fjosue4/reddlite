@@ -12,6 +12,8 @@
     --boxes-dark-bg: #424242;
     --light-outline: #EDEFF1;
     --dark-outline: #878787;
+    --body-light-bg: #DAE0E6;
+    --body-dark-bg: #444;
 }
 
 #light {
@@ -21,4 +23,18 @@
 #dark {
     background-color: var(--dark-bg) !important;
     color: #fff !important;
+}
+
+.app-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#light .app-body {
+    background-color: var(--body-light-bg) !important;
+}
+
+#dark .app-body {
+    background-color: var(--body-dark-bg) !important;
 }
