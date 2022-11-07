@@ -9,9 +9,9 @@ function Trending () {
     let backgroundImage4 = "https://i.stack.imgur.com/sXK51.png";
 
     let trend1 = "https://img.freepik.com/free-photo/dirty-pattern-paint-room-block_1203-5709.jpg";
-    let trend2;
-    let trend3;
-    let trend4;
+    let trend2 = "https://img.freepik.com/free-photo/dirty-pattern-paint-room-block_1203-5709.jpg";
+    let trend3 = "https://img.freepik.com/free-photo/dirty-pattern-paint-room-block_1203-5709.jpg";
+    let trend4 = "https://img.freepik.com/free-photo/dirty-pattern-paint-room-block_1203-5709.jpg";
 
     return (
         <div className="trending-section">
