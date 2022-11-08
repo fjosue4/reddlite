@@ -74,7 +74,9 @@ function Trending () {
           <div
             key={index}
             className='trending'
-            style={{ backgroundImage: `url(${data.thumbnail})` }}
+            style={ 
+              data.thumbnail !== 'default' ? { backgroundImage: `url(${data.thumbnail})` } : { backgroundColor: '#000'}
+            }
           >
             <h3>Title {index}</h3>
             <p>{data.title}</p>
