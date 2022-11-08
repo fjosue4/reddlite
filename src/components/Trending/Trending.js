@@ -18,6 +18,7 @@ function Trending () {
              <div className="trending-title">
              <p>Trending</p>
              </div>
+             
             <div className="trendings">
                 <div className="trending" style={{ "backgroundImage": `url(${backgroundImage1})`}}>
                     <h3>Article Title</h3>

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Icon } from '@iconify/react';
 import SearchedResult from '../SearchedResult/SearchedResult';
 import './SearchBar.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSearchedData } from '../../store/search/searchSlice';
+import { useDetectClickOutside } from 'react-detect-click-outside';
 
 function SearchBar (props) {
   const [searchTerm, setSearchTerm] = useState('');
@@ -30,8 +31,14 @@ function SearchBar (props) {
   }
   console.log(searchedContent)
 
+  const closeSearchResult = () => {
+    inputFocus === true && setInputFocus(false);
+}
+
+  const ref = useDetectClickOutside({ onTriggered: closeSearchResult });
+
   return (
-    <div>
+    <div ref={ref}>
     <div className='search-bar'>
       <Icon icon='ant-design:search-outlined' className='search-icon' />
       <input
@@ -44,7 +51,7 @@ function SearchBar (props) {
       ></input>
       {/* <button onClick={handleSearch}>Search</button> */}
       </div>
-      {inputFocus === true ? <SearchedResult /> : null}
+      {inputFocus === true ? <SearchedResult searchTerm={searchTerm} /> : null}
     </div>
   )
 }

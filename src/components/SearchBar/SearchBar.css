@@ -8,7 +8,6 @@
     border: var(--light-outline) 1px solid;
     border-radius: 15px;
     transition: 0.2s;
-    margin: 0 4rem;
 }
 
 #dark .search-bar {

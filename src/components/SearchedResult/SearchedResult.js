@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux'
 import './SearchedResult.css'
 import { Icon } from '@iconify/react'
 
-const SearchedResult = () => {
+const SearchedResult = (props) => {
   const { data } = useSelector(state => state.search)
+  const searchTerm = props.searchTerm
 
   // Number formatter changes number to 'k' or 'm' accordingly
   const numFormatter = num => {
@@ -20,6 +21,7 @@ const SearchedResult = () => {
 
   return (
     <div className='all-search-results'>
+      {searchTerm === "" && <h4>Hint: Fill the filed above...</h4>}
       {data?.map(d => (
         <div className='search-results-container'>
           {/* Checking if the search result is user type or community type */}

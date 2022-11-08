@@ -4,6 +4,7 @@
     height: 84px;
     align-items: center;
     justify-content: center;
+    gap: 8rem;
 }
 
 .nav-bar > .logo {
