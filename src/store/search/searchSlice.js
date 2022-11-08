@@ -3,6 +3,7 @@ import { fetchSearchedData } from '../../api'
 const initialState = {
   loading: false,
   data: [],
+  trendingData: [],
   error: null
 }
 
@@ -26,7 +27,7 @@ function shuffle (array) {
   return array
 }
 
-const getSearchedData = createAsyncThunk(
+export const getSearchedData = createAsyncThunk(
   'index/getSearchedData',
   async searchTerm => {
     const resByCommunites = await fetchSearchedData(`${searchTerm}&&type=sr`)
@@ -35,7 +36,15 @@ const getSearchedData = createAsyncThunk(
     return shuffle([
       ...resByCommunites.data.data.children,
       ...resByUser.data.data.children
-    ]).slice(0, 25)
+    ]).slice(0, 26)
+  }
+)
+
+export const getTrendingData = createAsyncThunk(
+  'index/getTrendingData',
+  async () => {
+    const trending = await fetchSearchedData('q=trending')
+    return trending.data.data.children.slice(0, 4).map(item => item.data)
   }
 )
 
@@ -50,9 +59,19 @@ const searchSlice = createSlice({
     builder.addCase(getSearchedData.fulfilled, (state, action) => {
       state.loading = false
       state.data = action.payload
-      state.success = true
     })
     builder.addCase(getSearchedData.rejected, (state, action) => {
+      state.loading = false
+      state.error = action.payload
+    })
+    builder.addCase(getTrendingData.pending, state => {
+      state.loading = true
+    })
+    builder.addCase(getTrendingData.fulfilled, (state, action) => {
+      state.loading = false
+      state.trendingData = action.payload
+    })
+    builder.addCase(getTrendingData.rejected, (state, action) => {
       state.loading = false
       state.error = action.payload
     })
@@ -60,4 +79,3 @@ const searchSlice = createSlice({
 })
 
 export default searchSlice.reducer
-export { getSearchedData }
