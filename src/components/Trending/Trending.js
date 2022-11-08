@@ -32,7 +32,9 @@ function Trending () {
       'thumbnail_height',
       data.thumbnail_height,
       'thumbnail_widht',
-      data.thumbnail_width
+      data.thumbnail_width,
+      'icon_image',
+      data.icon_img
     )
   })
 
@@ -50,8 +52,9 @@ function Trending () {
   // 2. subreddit_name_prefixed
   // 3. thumnail
   // 4. title
-  // 5. thumbnail_height ( which is not important )
-  // 6. thumnail_weight ( which is not important )
+  // 5. icon_img ( use fallback as like as searched result)
+  // 6. thumbnail_height ( which is not important )
+  // 7. thumnail_weight ( which is not important )
 
   // first four to be using in the trending card
   // also some times trending data does not have any thumnail property, may be it's
@@ -60,6 +63,9 @@ function Trending () {
   // image quality are not best , then just fix on size and set the property to cover
 
   // rn, for title just use title and index as used in line 73
+
+  // for icon  data.icon_img , use fall
+
   return (
     <div className='trending-section'>
       <h4>Trending</h4>

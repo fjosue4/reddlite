@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const API = axios.create({ baseURL: 'https://www.reddit.com/' })
 
-export const fetchHomeData = () => API.get('/r/pics/.json')
+export const fetchHomeData = () => API.get('/.json')
 
 export const fetchSearchedData = searchTerm =>
   API.get(`/search.json?${searchTerm}`)
