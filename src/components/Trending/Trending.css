@@ -30,6 +30,9 @@
     width: 100%;
     justify-content: flex-end;
     color: #fff !important;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 .trending > h3 {
