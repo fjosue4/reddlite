@@ -43,6 +43,22 @@ function Trending () {
   let backgroundImage3 = 'https://i.stack.imgur.com/sXK51.png'
   let backgroundImage4 = 'https://i.stack.imgur.com/sXK51.png'
 
+  let fallbackImage =
+    'https://a.thumbs.redditmedia.com/Qr4cH1NmdrdxTac8wT3MbN-cNBU7uJear0HT6UeWwP8.jpg'
+
+  const isValidUrl = urlString => {
+    var urlPattern = new RegExp(
+      '^(https?:\\/\\/)?' + // validate protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // validate domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))' + // validate OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // validate port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?' + // validate query string
+        '(\\#[-a-z\\d_]*)?$',
+      'i'
+    ) // validate fragment locator
+    return !!urlPattern.test(urlString)
+  }
+
   let trend1
   let trend2
   let trend3
@@ -74,14 +90,16 @@ function Trending () {
           <div
             key={index}
             className='trending'
-            style={ 
-              data.thumbnail !== 'default' ? { backgroundImage: `url(${data.thumbnail})` } : { backgroundColor: '#000'}
+            style={
+              isValidUrl(data.thumbnail)
+                ? { backgroundImage: `url(${data.thumbnail})` }
+                : { backgroundImage: `url(${fallbackImage})`  }
             }
           >
             <h3>Title {index}</h3>
             <p>{data.title}</p>
             <div className='trend'>
-              <img src={trend1} />
+              <img src={data.all_awardings[0].icon_url} />
               <a href=''>
                 <span>{data.subreddit_name_prefixed}</span>
               </a>
