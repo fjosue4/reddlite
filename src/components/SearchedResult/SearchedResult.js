@@ -20,6 +20,20 @@ const SearchedResult = (props) => {
     }
   }
 
+  const skeletonResult = (
+    <div className='search-results-container'>
+        <div className='search-result'>
+          <div className='img-skeleton'></div>
+            <div className='content-skeleton'>
+              <div className='text-skeleton'></div>
+          <div className='search-category'>
+            <div className='category-skeleton'></div>
+          </div>
+          </div>
+        </div>
+    </div>
+  )
+
   const results = (data?.map(d => (
     <div className='search-results-container'>
       {/* Checking if the search result is user type or community type */}
@@ -71,7 +85,7 @@ const SearchedResult = (props) => {
   return (
     <div className='all-search-results'>
       {searchTerm === "" && <h4>Hint: Fill the filed above...</h4>}
-      {loading ? <h3>Loading...</h3> : results}
+      {loading ? skeletonResult : results}
     </div>
   )
 }
