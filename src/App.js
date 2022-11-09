@@ -4,6 +4,7 @@ import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import { useSelector } from 'react-redux'
 import Trending from './components/Trending/Trending'
+import PopularPosts from './components/PopularPosts/PopularPosts'
 
 function App () {
   // fetching theme state from redux-store
@@ -25,6 +26,7 @@ function App () {
       <NavBar theme={theme} />
       <div className='app-body'>
       <Trending />
+      <PopularPosts />
       </div>
     </div>
   )

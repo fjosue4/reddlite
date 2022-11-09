@@ -10,6 +10,7 @@ import communityReducer from './community/communitySlice'
 import postReducer from './post/postSlice'
 import userReducer from './user/userSlice'
 import styleReducer from './styleSlice'
+import popularPostsReducer from './post/popularPostsSlice'
 
 // Persistance Code
 import {
@@ -36,7 +37,8 @@ const rootReducer = combineReducers({
   community: communityReducer,
   post: postReducer,
   user: userReducer,
-  style: styleReducer
+  style: styleReducer,
+  popularPosts: popularPostsReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
