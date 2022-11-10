@@ -1,3 +1,13 @@
+#light .best-communities-container {
+  background-color: var(--light-bg);
+  border: var(--light-outline) 1px solid;
+}
+
+#dark .best-communities-container {
+  background-color: var(--dark-bg);
+  border: var(--dark-outline) 1px solid;
+}
+
 .best-communities-container {
   display: flex;
   flex-direction: column;
@@ -6,8 +16,7 @@
   width: 25%;
   margin: auto;
   min-width: 300px;
-  background: var(--light-bg);
-  border: 1px solid #CCCCCC;
+  border: 1px solid var(--grey-border);
   border-radius: 3px 3px 0px 0px;
   margin-bottom: 16px;
 }
@@ -23,15 +32,15 @@
 }
 
 .best-community-wrapper:nth-child(6) {
-    border-bottom: 1px solid #cccccc;
+  border-bottom: 1px solid var(--grey-border);
 }
 .best-community-wrapper {
-    display: flex;
-    justify-content: space-between;
-    border-top: 1px solid #cccccc;
-    padding: 17px 17px;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--grey-border);
+  padding: 17px 17px;
+  width: 100%;
+  align-items: center;
 }
 .best-community {
   display: flex;
@@ -41,7 +50,7 @@
 .eclipse {
   width: 26px;
   height: 26px;
-  background-color: #cccccc;
+  background-color: var(--grey-border);
   border-radius: 16px;
   margin-right: 5px;
 }
