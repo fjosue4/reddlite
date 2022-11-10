@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 import './SearchedResult.css'
 import { Icon } from '@iconify/react'
 
-const SkeletonResult =() => (
+const SkeletonResult = () => (
   <div className='search-results-container'>
     <div className='search-result'>
       <div className='img-skeleton'></div>
@@ -17,7 +17,6 @@ const SkeletonResult =() => (
     </div>
   </div>
 )
-
 
 const SearchedResult = props => {
   const { data, loading } = useSelector(state => state.search)
@@ -34,8 +33,6 @@ const SearchedResult = props => {
       return num
     }
   }
-
-  
 
   const results = data?.map(d => (
     <div className='search-results-container'>
@@ -88,7 +85,7 @@ const SearchedResult = props => {
   return (
     <div className='all-search-results'>
       {searchTerm === '' && <h4>Hint: Fill the filed above...</h4>}
-      {loading ? [...Array(6)].map((e, i) => <SkeletonResult/>) : results}
+      {loading ? [...Array(6)].map(() => <SkeletonResult />) : results}
     </div>
   )
 }
