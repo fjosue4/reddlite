@@ -1,0 +1,70 @@
+.best-communities-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  margin: auto;
+  min-width: 300px;
+  background: var(--light-bg);
+  border: 1px solid #CCCCCC;
+  border-radius: 3px 3px 0px 0px;
+  margin-bottom: 16px;
+}
+.best-communities-heading {
+  padding: 24px;
+}
+.subreddit {
+  display: flex;
+  justify-content: space-between;
+  flex: 0.3;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.best-community-wrapper:nth-child(6) {
+    border-bottom: 1px solid #cccccc;
+}
+.best-community-wrapper {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #cccccc;
+    padding: 17px 17px;
+    width: 100%;
+    align-items: center;
+}
+.best-community {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.eclipse {
+  width: 26px;
+  height: 26px;
+  background-color: #cccccc;
+  border-radius: 16px;
+  margin-right: 5px;
+}
+
+.button-wrapper {
+  padding: 20px;
+}
+
+.btn {
+  background: hsl(205, 83%, 46%);
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  width: 51px;
+  height: 30px;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: hsl(205, 83%, 26%);
+  cursor: pointer;
+}
+
+.index {
+  padding-right: 16px;
+}
