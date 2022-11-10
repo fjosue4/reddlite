@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchPopularPosts, filterDescendingMod } from '../../../store/post/popularPostsSlice'
 
@@ -8,12 +8,16 @@ import { fetchPopularPosts, filterDescendingMod } from '../../../store/post/popu
 const PopularFilter = () => {
     const dispatch = useDispatch();
 
-    function getNewestPopularPosts(country){
-        if(country){
-            dispatch(fetchPopularPosts(`g=${country}`));
-            return
-        }
-        dispatch(fetchPopularPosts());
+    const [country, setCountry] = useState('GLOBAL');
+
+    useEffect(() => {
+        getNewestPopularPosts(country);
+        console.log(country);
+    }, [country])
+
+    function getNewestPopularPosts(nation){
+        //target.value represent country
+        dispatch(fetchPopularPosts(`g=${nation}`));
     }
   
     function getMostVotedPopularPosts(){
@@ -23,16 +27,19 @@ const PopularFilter = () => {
 
     return (
     <div className='popularFilter'>
-        <select name="placeOption">
+        <select name="placeOption"
+        onChange={({target}) => {setCountry(target.value)}}>
             <option value="GLOBAL">Global</option>
             <option value="US">USA</option>
             <option value="JP">Japan</option>
         </select>
         <div className='newest'>
-            <h4 onClick={getNewestPopularPosts}>Newest</h4>
+            <h4 
+            onClick={() => {getNewestPopularPosts(country)}}
+            >Newest</h4>
         </div>
         <div className='popular'> 
-            <h4>Most voted</h4>
+            <h4 onClick={getMostVotedPopularPosts}>Most voted</h4>
         </div>
     </div>
   )
