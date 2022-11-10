@@ -16,7 +16,7 @@
   width: 25%;
   margin: auto;
   min-width: 300px;
-  border: 1px solid var(--grey-border);
+  border: 1px solid var(--light-outline);
   border-radius: 3px 3px 0px 0px;
   margin-bottom: 16px;
 }
@@ -32,12 +32,12 @@
 }
 
 .best-community-wrapper:nth-child(6) {
-  border-bottom: 1px solid var(--grey-border);
+  border-bottom: 1px solid var(--light-outline);
 }
 .best-community-wrapper {
   display: flex;
   justify-content: space-between;
-  border-top: 1px solid var(--grey-border);
+  border-top: 1px solid var(--light-outline);
   padding: 17px 17px;
   width: 100%;
   align-items: center;
@@ -50,7 +50,7 @@
 .eclipse {
   width: 26px;
   height: 26px;
-  background-color: var(--grey-border);
+  background-color: var(--light-outline);
   border-radius: 16px;
   margin-right: 5px;
 }
@@ -60,7 +60,7 @@
 }
 
 .btn {
-  background: hsl(205, 83%, 46%);
+  background: var(--primary-color);
   border-radius: 15px;
   outline: none;
   border: none;

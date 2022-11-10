@@ -4,7 +4,7 @@ import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import { useSelector } from 'react-redux'
 import Trending from './components/Trending/Trending'
-import BestCommunites from './components/TopCommunites/BestCommunites'
+import BestCommunites from './components/BestCommunites/BestCommunites'
 
 function App () {
   // fetching theme state from redux-store
