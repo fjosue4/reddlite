@@ -22,7 +22,7 @@ const PopularFilter = () => {
   
     function getMostVotedPopularPosts(){
         // This function isn't finished yet
-        dispatch(filterDescendingMod());
+        // dispatch(filterDescendingMod());
     }
 
     return (

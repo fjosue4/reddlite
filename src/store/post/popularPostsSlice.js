@@ -20,6 +20,7 @@ const popularPostsSlice = createSlice({
     reducers: {
         filterDescendingMod: (state, action) => {
             //I'm gonna fix later
+            
         }
     },
     extraReducers: {
