@@ -16,4 +16,7 @@ export const fetchPostData = (community, postPath) =>
 
 export const fetchUserData = user => API.get(`/user/${user}/.json`)
 
+// Fetching popular posts on Reddit
+export const fetchPopularPostsData = param => API.get(`/hot.json?${param}`);
+
 // /r/${community}/comments/${postPath}/.json

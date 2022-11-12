@@ -28,6 +28,7 @@
 .app-body {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -39,3 +40,9 @@
     background-color: var(--body-dark-bg) !important;
 }
 
+.postIcon{
+    display: flex;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+}
