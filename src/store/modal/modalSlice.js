@@ -8,9 +8,14 @@ const initialState = {
     name: 'modal',
     initialState,
     reducers: {
-        setModal: (state) => {
+        hideModal: (state) => {
             state.showModal = false
-    }}
+        },
+        showModal: (state) =>
+         {
+            state.showModal = true
+        }
+}
 })
   
   export default modalSlice.reducer

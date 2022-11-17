@@ -6,9 +6,11 @@ import { changeModal } from "../../store/modal/modalSlice";
 
 const ModalPreview = () => {
     const dispatch = useDispatch()
-
+    const isModalActive = useSelector(state => state.modal.showModal)
     const hideModal = () => {
-        dispatch(changeModal.setModal())
+        isModalActive === true ?
+        dispatch(changeModal.hideModal())
+        : dispatch(changeModal.showModal())
     }
 
     return (
