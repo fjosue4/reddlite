@@ -6,13 +6,15 @@ import { useSelector } from 'react-redux'
 import Trending from './components/Trending/Trending'
 import PopularPosts from './components/PopularPosts/PopularPosts'
 import BestCommunites from './components/BestCommunites/BestCommunites'
-
+import ModalPreview from './components/ModalPreview/ModalPreview'
 
 function App () {
   // fetching theme state from redux-store
 
-  const style = useSelector(state => state.style)
-  const [theme, setTheme] = useState('')
+  const style = useSelector(state => state.style);
+  const modalState = useSelector(state => state.modal);
+  const [currentModal, setCurrentModal] = useState(false);
+  const [theme, setTheme] = useState('');
 
   // here we are accessing the style property of state
   // To set the style of theme we can dispatch change action at toggleTheme component
@@ -20,9 +22,12 @@ function App () {
     setTheme(style.theme)
   }, [style])
 
-  // const toggleTheme = () => {
-  //   setTheme(curr => (curr === 'light' ? 'dark' : 'light'))
-  // }
+  console.log(currentModal)
+  useEffect(() => {
+    setCurrentModal(modalState.showModal) 
+    console.log(modalState.showModal)
+  }, [modalState])
+
   return (
     <div className='App' id={theme}>
       <NavBar theme={theme} />
@@ -30,6 +35,7 @@ function App () {
         <Trending />
         <BestCommunites />
         <PopularPosts />
+        {currentModal && <ModalPreview />}
       </div>
     </div>
   )

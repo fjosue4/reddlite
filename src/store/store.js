@@ -11,6 +11,7 @@ import postReducer from './post/postSlice'
 import userReducer from './user/userSlice'
 import styleReducer from './styleSlice'
 import popularPostsReducer from './post/popularPostsSlice'
+import modalReducer from './modal/modalSlice'
 
 // Persistance Code
 import {
@@ -38,7 +39,8 @@ const rootReducer = combineReducers({
   post: postReducer,
   user: userReducer,
   style: styleReducer,
-  popularPosts: popularPostsReducer
+  popularPosts: popularPostsReducer,
+  modal: modalReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
