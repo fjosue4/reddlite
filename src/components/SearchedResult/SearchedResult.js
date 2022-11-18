@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactImageFallback from 'react-image-fallback'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { changeModal } from "../../store/modal/modalSlice";
 import './SearchedResult.css'
 import { Icon } from '@iconify/react'
 
@@ -22,6 +23,7 @@ const SearchedResult = props => {
   const { data, loading } = useSelector(state => state.search)
   console.log('loading is:' + loading)
   const searchTerm = props.searchTerm
+  const dispatch = useDispatch();
 
   // Number formatter changes number to 'k' or 'm' accordingly
   const numFormatter = num => {
@@ -34,11 +36,16 @@ const SearchedResult = props => {
     }
   }
 
+  //We must pass type of content (user, post, community) and the user or id to display info 
+  const openModal = () => {
+    dispatch(changeModal.showModal())
+  }
+
   const results = data?.map(d => (
     <div className='search-results-container'>
       {/* Checking if the search result is user type or community type */}
       {d.kind === 't2' ? (
-        <div className='search-result search-user'>
+        <div className='search-result search-user' onClick={openModal}>
           {/* Image or Icon */}
           <ReactImageFallback
             src={
@@ -61,7 +68,7 @@ const SearchedResult = props => {
           </div>
         </div>
       ) : (
-        <div className='search-result search-community'>
+        <div className='search-result search-community' onClick={openModal}>
           {/* Icon  of the community */}
           <ReactImageFallback
             src={d.data.icon_img}
