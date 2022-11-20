@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ReactImageFallback from 'react-image-fallback'
 import { useSelector, useDispatch } from 'react-redux'
-import { changeModal } from "../../store/modal/modalSlice";
+import { changeModal } from '../../store/modal/modalSlice'
 import './SearchedResult.css'
 import { Icon } from '@iconify/react'
 
@@ -20,10 +20,11 @@ const SkeletonResult = () => (
 )
 
 const SearchedResult = props => {
+  const [clickedData, setClickedData] = useState({})
   const { data, loading } = useSelector(state => state.search)
   console.log('loading is:' + loading)
   const searchTerm = props.searchTerm
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
 
   // Number formatter changes number to 'k' or 'm' accordingly
   const numFormatter = num => {
@@ -36,16 +37,22 @@ const SearchedResult = props => {
     }
   }
 
-  //We must pass type of content (user, post, community) and the user or id to display info 
-  const openModal = () => {
-    dispatch(changeModal.showModal())
+  //We must pass type of content (user, post, community) and the user or id to display info
+  const openModal = info => {
+    dispatch(changeModal.updateInfo(info))
+    console.log('Info', info)
+    dispatch(changeModal.toggleModal())
   }
 
   const results = data?.map(d => (
     <div className='search-results-container'>
+      {console.log('Data to check', d)}
       {/* Checking if the search result is user type or community type */}
       {d.kind === 't2' ? (
-        <div className='search-result search-user' onClick={openModal}>
+        <div
+          className='search-result search-user'
+          onClick={() => openModal(d)}
+        >
           {/* Image or Icon */}
           <ReactImageFallback
             src={
@@ -68,7 +75,10 @@ const SearchedResult = props => {
           </div>
         </div>
       ) : (
-        <div className='search-result search-community' onClick={openModal}>
+        <div
+          className='search-result search-community'
+          onClick={() => openModal(d)}
+        >
           {/* Icon  of the community */}
           <ReactImageFallback
             src={d.data.icon_img}
