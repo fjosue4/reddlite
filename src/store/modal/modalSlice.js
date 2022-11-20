@@ -1,7 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
-    showModal: false
+    showModal: false,
+    contentType: '',
+    contentId: ''
   }
   
   const modalSlice = createSlice({
