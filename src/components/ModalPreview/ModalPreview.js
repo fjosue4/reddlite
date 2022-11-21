@@ -64,6 +64,9 @@ const ModalPreview = () => {
           <button className='btn-filter'>Posts</button>
           <button className='btn-filter btn-disabled'>Comments</button>
         </div>
+        <div className='posts-content-section'>
+          {/* Fetch data from user/community posts here */}
+        </div>
         </div>
       </div>
     </div>
