@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ReactImageFallback from 'react-image-fallback'
 import { useSelector, useDispatch } from 'react-redux'
-import { changeModal } from '../../store/modal/modalSlice'
+import { changeModal, getData } from '../../store/modal/modalSlice'
 import './SearchedResult.css'
 import { Icon } from '@iconify/react'
 
@@ -39,9 +39,15 @@ const SearchedResult = props => {
 
   //We must pass type of content (user, post, community) and the user or id to display info
   const openModal = info => {
+    const args =
+      info.kind === 't2'
+        ? { type: 'user', title: info.data.name }
+        : { type: 'community', title: info.data.display_name_prefixed }
+
     dispatch(changeModal.updateInfo(info))
     console.log('Info', info)
     dispatch(changeModal.toggleModal())
+    dispatch(getData(args))
   }
 
   const results = data?.map(d => (
@@ -49,10 +55,7 @@ const SearchedResult = props => {
       {console.log('Data to check', d)}
       {/* Checking if the search result is user type or community type */}
       {d.kind === 't2' ? (
-        <div
-          className='search-result search-user'
-          onClick={() => openModal(d)}
-        >
+        <div className='search-result search-user' onClick={() => openModal(d)}>
           {/* Image or Icon */}
           <ReactImageFallback
             src={
