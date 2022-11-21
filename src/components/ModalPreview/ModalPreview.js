@@ -16,16 +16,19 @@ const ModalPreview = () => {
   return (
     <div class='modal'>
       <div class='modal-content'>
+        <div className='modal-head'>
         <span class='close' onClick={modalHandler}>
           &times;
         </span>
-        <p>{info?.kind}</p>
-        <p>
-          Preview text{' '}
+        <p className='url-preview'>
+          /
           {info?.kind === 't2'
-            ? info?.data.name
+            ? `u/${info?.data.name}`
             : info?.data.display_name_prefixed}
         </p>
+        </div>
+        <div className='body'>
+          <div className='name-and-photo'></div>
         <ReactImageFallback
           src={
             info?.data.snoovatar_img?.trim() === ''
@@ -34,6 +37,12 @@ const ModalPreview = () => {
           }
           fallbackImage='https://www.redditstatic.com/avatars/defaults/v2/avatar_default_4.png'
         />
+        <h2>
+        {info?.kind === 't2'
+            ? info?.data.name
+            : info?.data.display_name}
+        </h2>
+        </div>
       </div>
     </div>
   )

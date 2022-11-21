@@ -101,7 +101,7 @@ const SearchedResult = props => {
 
   return (
     <div className='all-search-results'>
-      {searchTerm === '' && <h4>Hint: Fill the filed above...</h4>}
+      {searchTerm === '' && <h4>Hint: Fill in the field above...</h4>}
       {loading ? [...Array(6)].map(() => <SkeletonResult />) : results}
     </div>
   )

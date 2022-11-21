@@ -24,8 +24,6 @@
 .close {
     color: #aaa;
     float: left;
-    margin-top: 10px;
-    margin-left: 20px;
     font-size: 28px;
     font-weight: bold;
   }
@@ -35,4 +33,16 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+
+  .modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-left: 20px;
+  }
+
+  .url-preview {
+    margin-left: 0.4rem;
   }
