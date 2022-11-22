@@ -101,8 +101,8 @@ const ModalPreview = () => {
                   <h3>{item.title}</h3>
                   {item.text && <p className='p-preview'>{item.text}</p>}
                   {item.thumnail && <img src={item.thumbnail} alt="thumbnail" />}
-                  {item.url && <img src={item.url} alt="thumbnail" />}
-                  {/* {item.url.toString().endsWith("jpg") && <img src={item.url} alt="thumbnail" />} */}
+                  {/* {item.url && <img src={item.url} alt="thumbnail" />} */}
+                  {item.url?.toString().endsWith("jpg") ? <img src={item.url} alt="thumbnail" /> : <p>{item.url}</p>}
                   {item.is_video && item.videoLink}
                 </>
               )
