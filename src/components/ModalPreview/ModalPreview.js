@@ -102,11 +102,13 @@ const ModalPreview = () => {
                 <>
                 {item.url?.toString().match(imgFormats) || item.thumnail ? 
                 <div className='image-content'>
-                <h3>{item.title}</h3>
-                {item.text && <p className='p-preview'>{item.text}</p>}
-                {item.thumnail && <img src={item.thumbnail} alt="thumbnail" />}
-                <img src={item.url} alt="thumbnail" />
-                {item.is_video && item.videoLink}
+                    <h3>{item.title}</h3>
+                    {item.text && <p className='p-preview'>{item.text}</p>}
+                    <div className='photo-section'>
+                    {item.thumnail && <img src={item.thumbnail} alt="thumbnail" />}
+                    <img src={item.url} alt="thumbnail" />
+                    {item.is_video && item.videoLink}
+                  </div>
               </div>
               :
               <div className='text-only'>

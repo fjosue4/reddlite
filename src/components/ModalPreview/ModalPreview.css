@@ -40,6 +40,7 @@
   justify-content: flex-start;
   padding-top: 10px;
   top: 0px;
+  margin-left: 10px;
   left: 20px;
   gap: 1rem;
   position: sticky;
@@ -97,6 +98,16 @@
 
 .image-content, .text-only {
   width: 100%;
+  margin-bottom: 4rem;
+  background-color: var(--light-bg);
+  padding: 2rem 1rem;
+  border: #CCCCCC 1px solid;
+  border-radius: 0.8rem;
+  cursor: pointer;
+}
+
+.image-content:hover, .text-only:hover {
+  border: #898989 1px solid;
 }
 
 .modal-content {
@@ -116,7 +127,6 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   margin: 0;
-  margin-bottom: 3rem;
   overflow-wrap: break-word;
 }
 
@@ -127,12 +137,20 @@
 }
 
 .posts-content-section img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
+  border-radius: 1rem;
 }
 
 .posts-content-section a {
   color: var(--primary-color);
   text-decoration: none;
+}
+
+.image-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
 }
