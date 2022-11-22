@@ -22,7 +22,7 @@ const ModalPreview = () => {
 
       const updated_item = {
         title: item?.data.title,
-        text: item?.data?.selftext_html, // or use selftext ( which is in markdown )
+        text: item?.data?.selftext, // or use selftext ( which is in markdown )
         thumbnail: item?.data?.thumbnail,
         url: item?.data?.url_overridden_by_dest,
         isVideo: item?.data?.is_video,
@@ -98,10 +98,11 @@ const ModalPreview = () => {
             {categorical_data.map((item) => {
               return (
                 <>
-                  <h1>{item.title}</h1>
-                  <p>{item.text}</p>
+                  <h3>{item.title}</h3>
+                  {item.text && <p className='p-preview'>{item.text}</p>}
                   {item.thumnail && <img src={item.thumbnail} alt="thumbnail" />}
-                  {item.url && <p>{item.url}</p>}
+                  {item.url && <img src={item.url} alt="thumbnail" />}
+                  {/* {item.url.toString().endsWith("jpg") && <img src={item.url} alt="thumbnail" />} */}
                   {item.is_video && item.videoLink}
                 </>
               )
