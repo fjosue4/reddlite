@@ -12,6 +12,7 @@ const ModalPreview = () => {
   const categorical_data = data
     .filter((d) => d.kind === 't3')
     .map((item) => {
+      console.log(item)
       // selftext
       // thumbnail
       // url_overridden_by_dest
@@ -27,6 +28,8 @@ const ModalPreview = () => {
         url: item?.data?.url_overridden_by_dest,
         isVideo: item?.data?.is_video,
         videoLink: item?.data?.media?.scrubber_media_url,
+        numComments: item?.data?.num_comments,
+        upVoteRatio: item?.data?.upvote_ratio,
       }
 
       return updated_item
@@ -102,20 +105,33 @@ const ModalPreview = () => {
                 <>
                 {item.url?.toString().match(imgFormats) || item.thumnail ? 
                 <div className='image-content'>
-                    <h3>{item.title}</h3>
-                    {item.text && <p className='p-preview'>{item.text}</p>}
-                    <div className='photo-section'>
-                    {item.thumnail && <img src={item.thumbnail} alt="thumbnail" />}
-                    <img src={item.url} alt="thumbnail" />
-                    {item.is_video && item.videoLink}
+                  <div className='post-preview-two-col'>
+                    <div className='post-preview-left'>
+                      <h3>{item.title}</h3>
+                      {item.text && <p className='p-preview'>{item.text}</p>}
+                      </div>
+                      <div className='photo-section'>
+                      {item.thumnail && <img src={item.thumbnail} alt="thumbnail" />}
+                      <img src={item.url} alt="thumbnail" />
+                      {item.is_video && item.videoLink}
+                    </div>
                   </div>
+                  <div className='post-preview-stats'>
+                  <div className='comments-amount'><Icon icon="fluent:comment-24-regular" /> Comments: {item?.numComments}</div>
+                </div>
               </div>
               :
               <div className='text-only'>
-              <h3>{item.title}</h3>
-              {item.text && <p className='p-preview'>{item.text}</p>}
-              <a href={item.url}><p>{item.url}</p></a>
-              {item.is_video && item.videoLink}
+                  <div className='post-preview-left'>
+                    <h3>{item.title}</h3>
+                    {item.text && <p className='p-preview'>{item.text}</p>}
+                    <a href={item.url}><p>{item.url}</p></a>
+                    {item.is_video && item.videoLink}
+                  </div>
+                <div className='post-preview-stats'>
+                  <div className='comments-amount'><Icon className='stats-icon' icon="fluent:comment-24-regular" /> Comments: {item?.numComments}</div>
+                  <div className='upvote-ratio'><Icon className='stats-icon' icon="mdi:arrow-up-bold-outline" /> {item?.upVoteRatio}% upvoted</div>
+                </div>
             </div>}
                 </>
               )
