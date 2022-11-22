@@ -1,11 +1,16 @@
+/*
+  #BIG NOTE: I want to add some change in how the component arrange themselves:
+  - I put the BestCommunites component into a larger component called Community
+  - I combine the two component Community and PopularPosts in newly created component called PostAndCommunity
+*/
+
 import logo from './logo.svg'
 import { useEffect, useState } from 'react'
 import './App.css'
 import NavBar from './components/NavBar/NavBar'
 import { useSelector } from 'react-redux'
 import Trending from './components/Trending/Trending'
-import PopularPosts from './components/PopularPosts/PopularPosts'
-import BestCommunites from './components/BestCommunites/BestCommunites'
+import PostAndCommunity from './components/PostAndCommunity/PostAndCommunity'
 import ModalPreview from './components/ModalPreview/ModalPreview'
 
 function App () {
@@ -33,8 +38,7 @@ function App () {
       <NavBar theme={theme} />
       <div className='app-body'>
         <Trending />
-        <BestCommunites />
-        <PopularPosts />
+        <PostAndCommunity />
         {currentModal && <ModalPreview />}
       </div>
     </div>

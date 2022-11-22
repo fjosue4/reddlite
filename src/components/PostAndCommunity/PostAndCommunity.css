@@ -1,0 +1,13 @@
+.postAndCommunity{
+    display: flex;
+    margin: 0 10%;
+}
+
+.popularPosts{
+    
+    flex: 50%;
+}
+
+.community{
+    flex: 30%;
+}

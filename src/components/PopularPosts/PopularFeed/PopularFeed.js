@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import { selectPopularPosts } from '../../../store/post/popularPostsSlice';
 import DummyIcon from '../../../img/reddit-logo.svg';
+import './PopularFeed.css';
 
 const PopularFeed = () => {
     const popularPosts = useSelector(selectPopularPosts);
