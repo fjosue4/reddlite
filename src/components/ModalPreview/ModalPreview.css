@@ -95,6 +95,10 @@
   width: 90%;
 }
 
+.image-content, .text-only {
+  width: 100%;
+}
+
 .modal-content {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -116,12 +120,19 @@
   overflow-wrap: break-word;
 }
 
-.posts-content-section > h3 {
+.posts-content-section h3 {
   font-weight: 500;
   font-size: 1.1rem;
   margin: 0;
 }
 
-.posts-content-section > img {
-  width: 400px;
+.posts-content-section img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.posts-content-section a {
+  color: var(--primary-color);
+  text-decoration: none;
 }

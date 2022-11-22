@@ -49,6 +49,8 @@ const ModalPreview = () => {
     }
   }
 
+  const imgFormats = new RegExp(/\.(gif|jpe?g|tiff?|png|webp|bmp|gif)$/i)
+
   return (
     <div class="modal">
       <div class="modal-content">
@@ -98,12 +100,21 @@ const ModalPreview = () => {
             {categorical_data.map((item) => {
               return (
                 <>
-                  <h3>{item.title}</h3>
-                  {item.text && <p className='p-preview'>{item.text}</p>}
-                  {item.thumnail && <img src={item.thumbnail} alt="thumbnail" />}
-                  {/* {item.url && <img src={item.url} alt="thumbnail" />} */}
-                  {item.url?.toString().endsWith("jpg") ? <img src={item.url} alt="thumbnail" /> : <p>{item.url}</p>}
-                  {item.is_video && item.videoLink}
+                {item.url?.toString().match(imgFormats) || item.thumnail ? 
+                <div className='image-content'>
+                <h3>{item.title}</h3>
+                {item.text && <p className='p-preview'>{item.text}</p>}
+                {item.thumnail && <img src={item.thumbnail} alt="thumbnail" />}
+                <img src={item.url} alt="thumbnail" />
+                {item.is_video && item.videoLink}
+              </div>
+              :
+              <div className='text-only'>
+              <h3>{item.title}</h3>
+              {item.text && <p className='p-preview'>{item.text}</p>}
+              <a href={item.url}><p>{item.url}</p></a>
+              {item.is_video && item.videoLink}
+            </div>}
                 </>
               )
             })}
