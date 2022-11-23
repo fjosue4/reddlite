@@ -45,7 +45,6 @@ const SearchedResult = props => {
         : { type: 'community', title: info.data.display_name_prefixed }
 
     dispatch(changeModal.updateInfo(info))
-    console.log('Info', info)
     dispatch(changeModal.toggleModal())
     dispatch(getData(args))
   }
