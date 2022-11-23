@@ -1,0 +1,70 @@
+#light .Feed{
+    background-color: var(--light-bg);
+    border: var(--light-outline) 1px solid;
+
+}
+
+#dark .Feed{
+    background-color: var(--light-bg);
+    border: var(--dark-outline) 1px solid;
+
+}
+
+.Feed {
+    margin-top: 2rem;
+    display: flex;
+}
+/* voteSection */
+.voteSection{
+    flex: 5%;
+    justify-content: center;
+    text-align: center;
+    padding-top: 1rem;
+    background-color: var(--boxes-light-bg);
+}
+
+.voteSection svg{
+    cursor: pointer;
+}
+/* postContent */
+.postContent{
+    flex: 85%;
+    padding: 0 2.5%;
+}
+
+.postHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.leftPostHeader{
+    display: flex;
+    align-items: center;
+}
+
+.username{
+    font-weight: 400;
+    margin-right: 1rem;
+}
+
+.subredditName, .commentsBlock{
+    color: var(--btn-inactive);
+}
+
+.commentsBlock{
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+}
+
+.commentsBlock svg{
+    height: 1.2rem;
+    width: auto;
+    cursor: pointer;
+}
+
+.commentsBlock p{
+    margin-left: 0.3rem;
+
+}
