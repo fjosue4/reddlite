@@ -32,6 +32,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
+    margin-top: 84px;
 }
 
 #light .app-body {
