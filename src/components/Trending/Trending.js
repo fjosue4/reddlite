@@ -59,10 +59,7 @@ function Trending () {
     return !!urlPattern.test(urlString)
   }
 
-  let trend1
-  let trend2
-  let trend3
-  let trend4
+
   // accessing data which is need to be in trending tile
   // 1. name
   // 2. subreddit_name_prefixed
@@ -107,62 +104,7 @@ function Trending () {
             </div>
           </div>
         ))}
-
-        {/* <div
-          className='trending'
-          style={{ backgroundImage: `url(${backgroundImage1})` }}
-        >
-          <h3>Title 1</h3>
-          <p>Small description of trending</p>
-          <div className='trend'>
-            <img src={trend1} />
-            <a href=''>
-              <span>r/trend</span>
-            </a>
-          </div>
-        </div>
-
-        <div
-          className='trending'
-          style={{ backgroundImage: `url(${backgroundImage2})` }}
-        >
-          <h3>Title 2</h3>
-          <p>Small description of trending</p>
-          <div className='trend'>
-            <img src={trend2} />
-            <a href=''>
-              <span>r/trend</span>
-            </a>
-          </div>
-        </div>
-
-        <div
-          className='trending'
-          style={{ backgroundImage: `url(${backgroundImage3})` }}
-        >
-          <h3>Title 3</h3>
-          <p>Small description of trending</p>
-          <div className='trend'>
-            <img src={trend3} />
-            <a href=''>
-              <span>r/trend</span>
-            </a>
-          </div>
-        </div>
-
-        <div
-          className='trending'
-          style={{ backgroundImage: `url(${backgroundImage4})` }}
-        >
-          <h3>Title 4</h3>
-          <p>Small description of trending</p>
-          <div className='trend'>
-            <img src={trend4} />
-            <a href=''>
-              <span>r/trend</span>
-            </a>
-          </div>
-        </div> */}
+        
       </div>
     </div>
   )

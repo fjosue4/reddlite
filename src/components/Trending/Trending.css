@@ -13,10 +13,7 @@
 .trendings {
     display: flex;
     position: relative;
-}
-
-.trending:hover {
-    background-color: whitesmoke;
+    gap: 1rem;
 }
 
 .trending {
@@ -27,7 +24,7 @@
     margin: 5px;
     border-radius: 8px;
     position: sticky;
-    width: 100%;
+    width: 200px;
     justify-content: flex-end;
     color: #fff !important;
     background-repeat: no-repeat;
