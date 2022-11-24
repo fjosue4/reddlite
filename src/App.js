@@ -38,8 +38,11 @@ function App () {
       <NavBar theme={theme} />
       <div className='app-body'>
         <Trending />
+        <div className='body-content'>
+        <h2>Popular posts</h2>
         <PostAndCommunity />
         {currentModal && <ModalPreview />}
+        </div>
       </div>
     </div>
   )

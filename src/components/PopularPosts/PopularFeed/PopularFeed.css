@@ -1,16 +1,16 @@
-#light .Feed{
+#light .feed{
     background-color: var(--light-bg);
     border: var(--light-outline) 1px solid;
 
 }
 
-#dark .Feed{
-    background-color: var(--light-bg);
+#dark .feed{
+    background-color: var(--dark-bg);
     border: var(--dark-outline) 1px solid;
 
 }
 
-.Feed {
+.feed {
     margin-top: 2rem;
     display: flex;
 }
@@ -21,6 +21,10 @@
     text-align: center;
     padding-top: 1rem;
     background-color: var(--boxes-light-bg);
+}
+
+#dark .voteSection {
+    background-color: var(--boxes-dark-bg);
 }
 
 .voteSection svg{

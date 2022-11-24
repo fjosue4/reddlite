@@ -81,7 +81,7 @@ const PopularFeed = () => {
           // console.log(eachData);
           // console.log(eachData.data.all_awardings[0].icon_url)
           return(
-            <div className='Feed'>
+            <div className='feed'>
               <div className='voteSection'>
                 <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14 10V18H6V10H0L10 0L20 10H14ZM5 8H8V16H12V8H15L10 3L5 8Z" fill="#878A8C"/>

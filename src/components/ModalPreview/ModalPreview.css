@@ -15,9 +15,13 @@
 .modal-content {
     width: 70%;
     height: 80%;
-    background-color: #fff;
+    background-color: var(--light-bg);
     position: fixed;
     border-radius: 0.8rem;
+}
+
+#dark .modal-content {
+  background-color: var(--dark-bg);
 }
 
 .close {
@@ -27,9 +31,14 @@
     margin-top: 7px;
   }
   
-  .close:hover,
-  .close:focus {
+  .close:hover, .close:focus {
     color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #dark .close:hover, #dark .close:focus {
+    color: var(--primary-color);
     text-decoration: none;
     cursor: pointer;
   }
@@ -45,6 +54,10 @@
   gap: 1rem;
   position: sticky;
   background-color: var(--light-bg);
+}
+
+#dark .modal-head {
+  background-color: var(--dark-bg);
 }
 
 .modal-body {
@@ -106,7 +119,16 @@
   cursor: pointer;
 }
 
+#dark .image-content, #dark .text-only {
+  background-color: var(--boxes-dark-bg);
+  border: var(--boxes-dark-bg) 1px solid;
+}
+
 .image-content:hover, .text-only:hover {
+  border: #898989 1px solid;
+}
+
+#dark .image-content:hover, #dark .text-only:hover {
   border: #898989 1px solid;
 }
 
@@ -195,3 +217,4 @@
 .stats-icon {
   margin-top: 2px;
 }
+

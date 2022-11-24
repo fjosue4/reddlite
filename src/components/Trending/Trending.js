@@ -81,7 +81,7 @@ function Trending () {
 
   return (
     <div className='trending-section'>
-      <h4>Trending</h4>
+      <h2>Trending</h2>
       <div className='trendings'>
         {trendingData?.map((data, index) => (
           <div
