@@ -89,11 +89,10 @@ function Trending () {
             className='trending'
             style={
               isValidUrl(data.thumbnail)
-                ? { backgroundImage: `url(${data.thumbnail})` }
-                : { backgroundImage: `url(${fallbackImage})`  }
+                ? { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${data.thumbnail})` }
+                : { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${fallbackImage})`  }
             }
           >
-            <h3>Title {index}</h3>
             <p>{data.title}</p>
             <div className='trend'>
               <img className='postIcon'
