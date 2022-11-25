@@ -12,6 +12,8 @@ import { useSelector } from 'react-redux'
 import Trending from './components/Trending/Trending'
 import PostAndCommunity from './components/PostAndCommunity/PostAndCommunity'
 import ModalPreview from './components/ModalPreview/ModalPreview'
+import SearchBar from './components/SearchBar/SearchBar'
+import './responsive.css'
 
 function App () {
   // fetching theme state from redux-store
@@ -37,6 +39,9 @@ function App () {
     <div className='App' id={theme}>
       <NavBar theme={theme} />
       <div className='app-body'>
+        <div className="mobile-search">
+          <SearchBar />
+        </div>
         <Trending />
         <div className='body-content'>
         <h2>Popular posts</h2>

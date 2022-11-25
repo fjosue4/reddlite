@@ -54,7 +54,10 @@ function NavBar (props) {
       <div className='logo'>
         <img src={currTheme === 'light' ? logo : logoWhite} alt='reddlite logo' />
       </div>
-      <SearchBar />
+      <div className="desktop-bar">
+        <SearchBar />
+      </div>
+      
       <ThemeToggle />
     </div>
   )

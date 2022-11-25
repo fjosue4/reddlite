@@ -47,6 +47,10 @@
     align-items: center;
 }
 
+.postBody h3 {
+    font-weight: 500;
+}
+
 .username{
     font-weight: 400;
     margin-right: 1rem;

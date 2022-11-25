@@ -53,3 +53,8 @@
 .body-content {
     width: 60%;
 }
+
+.mobile-search {
+    display: none;
+    margin-top: 2rem;
+}

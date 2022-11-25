@@ -99,12 +99,9 @@ const PopularFeed = () => {
                     <p className='subredditName'>{`r/${eachData.data.author_fullname}`}</p>
                     {isNew(eachData.data.all_awardings[0])}
                   </div>
-                  <div className="rightPostHeader">
-                    <button className="btn">Join</button>
-                  </div>
                 </div>
                 <div className='postBody'>
-                    <h2>{eachData.data.title}</h2>
+                    <h3>{eachData.data.title}</h3>
                     {someUnwantedImg(eachData.data.thumbnail) && <img src={eachData.data.thumbnail} alt="thumbnail" />}
                     <div className='commentsBlock'>
                       <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
