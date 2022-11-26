@@ -12,6 +12,7 @@ import userReducer from './user/userSlice'
 import styleReducer from './styleSlice'
 import popularPostsReducer from './post/popularPostsSlice'
 import modalReducer from './modal/modalSlice'
+import subbreditReducer from './subreddits/subredditSlice'
 
 // Persistance Code
 import {
@@ -40,7 +41,8 @@ const rootReducer = combineReducers({
   user: userReducer,
   style: styleReducer,
   popularPosts: popularPostsReducer,
-  modal: modalReducer
+  modal: modalReducer,
+  subreddits:subbreditReducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
