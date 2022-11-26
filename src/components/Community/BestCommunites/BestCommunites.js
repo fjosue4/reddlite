@@ -1,13 +1,13 @@
 import React from 'react'
 import './BestCommunites.css'
-
+import { Icon } from '@iconify/react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getSubbreditsList } from '../../../store/subreddits/subredditSlice'
 
 
 const filterTopFiveCommunites = (data) => {
-    let topFive = []
+  let topFive = []
     for(let i = 0 ; i < data.length ; i++){
       if(data[i].data.community_icon)
         topFive.push(data[i])
@@ -42,61 +42,18 @@ const BestCommunites = () => {
 
   return (
     <div class="best-communities-container">
-      <div class="best-communities-heading">Best Communities: News</div>
-      
-
-
-      <div class="best-community-wrapper">
+      <div class="best-communities-heading">Recommended communities</div>
+      {topFive.map((community, index) => (<div class="best-community-wrapper">
         <div class="subreddit">
-          <span class="index">1</span>
+          <span class="index">{index+1}</span>
           <div class="best-community">
-            <div class="eclipse"></div>
-            <div class="thread">r/thread</div>
+            <div class="eclipse"><img src={community.community_icon}/></div>
+            <div class="thread">{community.display_name}</div>
           </div>
         </div>
-        <button class="btn">Join</button>
-      </div>
-      <div class="best-community-wrapper">
-        <div class="subreddit">
-          <span class="index">2</span>
-          <div class="best-community">
-            <div class="eclipse"></div>
-            <div class="thread">r/thread</div>
-          </div>
-        </div>
-        <button class="btn">Join</button>
-      </div>
-      <div class="best-community-wrapper">
-        <div class="subreddit">
-          <span class="index">3</span>
-          <div class="best-community">
-            <div class="eclipse"></div>
-            <div class="thread">r/thread</div>
-          </div>
-        </div>
-        <button class="btn">Join</button>
-      </div>
-      <div class="best-community-wrapper">
-        <div class="subreddit">
-          <span class="index">4</span>
-          <div class="best-community">
-            <div class="eclipse"></div>
-            <div class="thread">r/thread</div>
-          </div>
-        </div>
-        <button class="btn">Join</button>
-      </div>
-      <div class="best-community-wrapper">
-        <div class="subreddit">
-          <span class="index">5</span>
-          <div class="best-community">
-            <div class="eclipse"></div>
-            <div class="thread">r/thread</div>
-          </div>
-        </div>
-        <button class="btn">Join</button>
-      </div>
-
+        <button class="btn"><Icon className='right-arrow' icon="ic:baseline-keyboard-arrow-right" /></button>
+      </div>)
+      )}
       <div class="button-wrapper">
         <button class="btn">All</button>
       </div>

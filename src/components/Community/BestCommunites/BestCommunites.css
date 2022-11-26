@@ -70,6 +70,11 @@
   color: #fff;
 }
 
+.right-arrow {
+  font-size: 1.4rem;
+  margin-top: 3px;
+}
+
 .btn:hover {
   background-color: hsl(205, 83%, 26%);
   cursor: pointer;
@@ -77,4 +82,9 @@
 
 .index {
   padding-right: 16px;
+}
+
+.best-community img {
+  width: 26px;
+  border-radius: 4rem;
 }

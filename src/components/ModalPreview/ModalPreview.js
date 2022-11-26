@@ -30,6 +30,8 @@ const ModalPreview = () => {
         videoLink: item?.data?.media?.scrubber_media_url,
         numComments: item?.data?.num_comments,
         upVoteRatio: item?.data?.upvote_ratio,
+        // Post data: username and image who commented + comment for that post
+        comments: item?.data
       }
 
       return updated_item
