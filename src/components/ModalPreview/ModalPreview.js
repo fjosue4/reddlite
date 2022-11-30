@@ -31,7 +31,8 @@ const ModalPreview = () => {
         numComments: item?.data?.num_comments,
         upVoteRatio: item?.data?.upvote_ratio,
         // Post data: username and image who commented + comment for that post
-        comments: item?.data
+        comments: item?.data,
+        permalink: item?.data?.permalink
       }
 
       return updated_item
@@ -105,36 +106,58 @@ const ModalPreview = () => {
             {categorical_data.map((item) => {
               return (
                 <>
-                {item.url?.toString().match(imgFormats) || item.thumnail ? 
-                <div className='image-content'>
-                  <div className='post-preview-two-col'>
-                    <div className='post-preview-left'>
-                      <h3>{item.title}</h3>
-                      {item.text && <p className='p-preview'>{item.text}</p>}
+                  {item.url?.toString().match(imgFormats) || item.thumnail ? (
+                    <div className="image-content">
+                      <div className="post-preview-two-col">
+                        <div className="post-preview-left">
+                          <h3>{item.title}</h3>
+                          {item.text && (
+                            <p className="p-preview">{item.text}</p>
+                          )}
+                        </div>
+                        <div className="photo-section">
+                          {item.thumnail && (
+                            <img src={item.thumbnail} alt="thumbnail" />
+                          )}
+                          <img src={item.url} alt="thumbnail" />
+                          {item.is_video && item.videoLink}
+                        </div>
                       </div>
-                      <div className='photo-section'>
-                      {item.thumnail && <img src={item.thumbnail} alt="thumbnail" />}
-                      <img src={item.url} alt="thumbnail" />
-                      {item.is_video && item.videoLink}
+                      <div className="post-preview-stats">
+                        <div className="comments-amount">
+                          <Icon icon="fluent:comment-24-regular" /> Comments:{' '}
+                          {item?.numComments}
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className='post-preview-stats'>
-                  <div className='comments-amount'><Icon icon="fluent:comment-24-regular" /> Comments: {item?.numComments}</div>
-                </div>
-              </div>
-              :
-              <div className='text-only'>
-                  <div className='post-preview-left'>
-                    <h3>{item.title}</h3>
-                    {item.text && <p className='p-preview'>{item.text}</p>}
-                    <a href={item.url}><p>{item.url}</p></a>
-                    {item.is_video && item.videoLink}
-                  </div>
-                <div className='post-preview-stats'>
-                  <div className='comments-amount'><Icon className='stats-icon' icon="fluent:comment-24-regular" /> Comments: {item?.numComments}</div>
-                  <div className='upvote-ratio'><Icon className='stats-icon' icon="mdi:arrow-up-bold-outline" /> {item?.upVoteRatio}% upvoted</div>
-                </div>
-            </div>}
+                  ) : (
+                    <div className="text-only">
+                      <div className="post-preview-left">
+                        <h3>{item.title}</h3>
+                        {item.text && <p className="p-preview">{item.text}</p>}
+                        <a href={item.url}>
+                          <p>{item.url}</p>
+                        </a>
+                        {item.is_video && item.videoLink}
+                      </div>
+                      <div className="post-preview-stats">
+                        <div className="comments-amount">
+                          <Icon
+                            className="stats-icon"
+                            icon="fluent:comment-24-regular"
+                          />{' '}
+                          Comments: {item?.numComments}
+                        </div>
+                        <div className="upvote-ratio">
+                          <Icon
+                            className="stats-icon"
+                            icon="mdi:arrow-up-bold-outline"
+                          />{' '}
+                          {item?.upVoteRatio}% upvoted
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </>
               )
             })}

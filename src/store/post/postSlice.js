@@ -8,7 +8,7 @@ const initialState = {
 
 const getPostData = createAsyncThunk('post/getPostData', async (url) => {
   const res = await fetchPostData(url)
-  return res.data
+  return res.data[1].data.children
 })
 
 const postSlice = createSlice({
