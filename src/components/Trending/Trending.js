@@ -14,29 +14,6 @@ function Trending () {
   }, [])
   const { trendingData } = useSelector(state => state.search)
 
-  // getting trending 4 data
-
-  // mapping through them
-  // trendingData?.map((data, index) => {
-  //   return console.log(
-  //     index,
-  //     'name',
-  //     data.name,
-  //     'subreddit_name',
-  //     data.subreddit_name_prefixed,
-  //     'title',
-  //     data.title,
-  //     'thumnail',
-  //     data.thumbnail,
-  //     'thumbnail_height',
-  //     data.thumbnail_height,
-  //     'thumbnail_widht',
-  //     data.thumbnail_width,
-  //     'icon_image',
-  //     data.icon_img
-  //   )
-  // })
-
   
   let fallbackImage =
     'https://a.thumbs.redditmedia.com/Qr4cH1NmdrdxTac8wT3MbN-cNBU7uJear0HT6UeWwP8.jpg'

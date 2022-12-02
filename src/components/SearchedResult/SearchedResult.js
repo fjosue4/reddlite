@@ -101,7 +101,7 @@ const SearchedResult = props => {
 
   return (
     <div className='all-search-results'>
-      {searchTerm === '' && <h4>Hint: Fill in the field above...</h4>}
+      {searchTerm === '' && <div className='search-hint'><h4>Hint: Fill in the field above...</h4><div><Icon icon='ant-design:search-outlined' className='hint-icon' /></div></div>}
       {loading ? [...Array(6)].map(() => <SkeletonResult />) : results}
     </div>
   )
