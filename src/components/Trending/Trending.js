@@ -37,11 +37,7 @@ function Trending () {
   //   )
   // })
 
-  let backgroundImage1 = 'https://i.stack.imgur.com/sXK51.png'
-  let backgroundImage2 = 'https://i.stack.imgur.com/sXK51.png'
-  let backgroundImage3 = 'https://i.stack.imgur.com/sXK51.png'
-  let backgroundImage4 = 'https://i.stack.imgur.com/sXK51.png'
-
+  
   let fallbackImage =
     'https://a.thumbs.redditmedia.com/Qr4cH1NmdrdxTac8wT3MbN-cNBU7uJear0HT6UeWwP8.jpg'
 
