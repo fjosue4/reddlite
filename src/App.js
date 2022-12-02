@@ -29,10 +29,8 @@ function App () {
     setTheme(style.theme)
   }, [style])
 
-  console.log(currentModal)
   useEffect(() => {
     setCurrentModal(modalState.showModal) 
-    console.log(modalState.showModal)
   }, [modalState])
 
   return (

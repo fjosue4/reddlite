@@ -21,7 +21,6 @@ function NavBar (props) {
   useEffect(() => {
     dispatch(getHomeData())
   }, [dispatch, getHomeData])
-  console.log(homeData)
 
   // Fetching post data just to test ... Got it!
   const post = useSelector(state => state.post)
@@ -33,21 +32,18 @@ function NavBar (props) {
       )
     )
   }, [dispatch, getPostData])
-  console.log(post)
 
   // Fetching community data just to test
   const community = useSelector(state => state.community)
   useEffect(() => {
     dispatch(getCommunityData('Cricket'))
   }, [dispatch, getCommunityData])
-  console.log(community)
 
   // Fetching community data just to test
   const user = useSelector(state => state.user)
   useEffect(() => {
     dispatch(getUserData('CricketMatchBot'))
   }, [dispatch, getUserData])
-  console.log(user)
 
   return (
     <div className='nav-bar'>

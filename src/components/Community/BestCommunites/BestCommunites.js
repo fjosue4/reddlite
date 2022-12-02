@@ -14,7 +14,6 @@ const filterTopFiveCommunites = (data) => {
       if (topFive.length >= 5) break;
     }
 
-    console.log("top five", topFive)
 
     return topFive.map(item => {
       return {
@@ -37,7 +36,6 @@ const BestCommunites = () => {
 
   
 
-  console.log('subreddits', filterTopFiveCommunites(data))
   const topFive = filterTopFiveCommunites(data)
 
   return (

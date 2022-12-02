@@ -20,7 +20,6 @@ const Comp = () => {
     score: data?.score,
     name: data?.subreddit_name_prefixed,
   }))
-  console.log('Data send by the api : ', data)
   return (
     <>
       {requiredData.map((item) => {

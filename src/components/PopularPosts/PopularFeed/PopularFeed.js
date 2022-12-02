@@ -46,7 +46,6 @@ const PopularFeed = () => {
     */
     function isNew(post){
       if(post){
-        // console.log(post.is_new);
         if(post.is_new){
           return <p>NEW!</p>
         }
@@ -73,13 +72,9 @@ const PopularFeed = () => {
     }
 
     if(data){
-      // console.log(loading)
-      // console.log(data);
       return (
       <div className='popularFeed'>
         {data.map(eachData => {
-          // console.log(eachData);
-          // console.log(eachData.data.all_awardings[0].icon_url)
           return(
             <div className='feed'>
               <div className='voteSection'>

@@ -17,7 +17,6 @@ const PopularFilter = () => {
 
     useEffect(() => {
         getNewestPopularPosts(country);
-        console.log(country);
     }, [country])
 
     function getNewestPopularPosts(nation){

@@ -5,7 +5,6 @@ export const fetchPopularPosts = createAsyncThunk(
     'popularPosts/getPopularPosts',
     async paramData => {
         const response = await fetchPopularPostsData(paramData);
-        console.log(response.data.data.children);
         return response.data.data.children;
     }
 )

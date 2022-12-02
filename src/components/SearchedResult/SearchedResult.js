@@ -22,7 +22,6 @@ const SkeletonResult = () => (
 const SearchedResult = props => {
   const [clickedData, setClickedData] = useState({})
   const { data, loading } = useSelector(state => state.search)
-  console.log('loading is:' + loading)
   const searchTerm = props.searchTerm
   const dispatch = useDispatch()
 
@@ -51,7 +50,6 @@ const SearchedResult = props => {
 
   const results = data?.map(d => (
     <div className='search-results-container'>
-      {console.log('Data to check', d)}
       {/* Checking if the search result is user type or community type */}
       {d.kind === 't2' ? (
         <div className='search-result search-user' onClick={() => openModal(d)}>

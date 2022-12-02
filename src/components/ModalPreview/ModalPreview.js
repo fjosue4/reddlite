@@ -12,7 +12,6 @@ const ModalPreview = () => {
   const categorical_data = data
     .filter((d) => d.kind === 't3')
     .map((item) => {
-      console.log(item)
       // selftext
       // thumbnail
       // url_overridden_by_dest
@@ -37,10 +36,7 @@ const ModalPreview = () => {
 
       return updated_item
     })
-  console.log('Categorical data', categorical_data)
-  console.log(data)
 
-  console.log('Data related to the search result', data)
   const modalHandler = () => {
     dispatch(changeModal.toggleModal())
   }

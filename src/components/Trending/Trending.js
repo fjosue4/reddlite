@@ -15,28 +15,27 @@ function Trending () {
   const { trendingData } = useSelector(state => state.search)
 
   // getting trending 4 data
-  console.log('trendingData', trendingData)
 
   // mapping through them
-  trendingData?.map((data, index) => {
-    return console.log(
-      index,
-      'name',
-      data.name,
-      'subreddit_name',
-      data.subreddit_name_prefixed,
-      'title',
-      data.title,
-      'thumnail',
-      data.thumbnail,
-      'thumbnail_height',
-      data.thumbnail_height,
-      'thumbnail_widht',
-      data.thumbnail_width,
-      'icon_image',
-      data.icon_img
-    )
-  })
+  // trendingData?.map((data, index) => {
+  //   return console.log(
+  //     index,
+  //     'name',
+  //     data.name,
+  //     'subreddit_name',
+  //     data.subreddit_name_prefixed,
+  //     'title',
+  //     data.title,
+  //     'thumnail',
+  //     data.thumbnail,
+  //     'thumbnail_height',
+  //     data.thumbnail_height,
+  //     'thumbnail_widht',
+  //     data.thumbnail_width,
+  //     'icon_image',
+  //     data.icon_img
+  //   )
+  // })
 
   let backgroundImage1 = 'https://i.stack.imgur.com/sXK51.png'
   let backgroundImage2 = 'https://i.stack.imgur.com/sXK51.png'
