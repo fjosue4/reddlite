@@ -29,7 +29,7 @@ function SearchBar (props) {
     setSearchTerm(e.target.value)
     dispatch(getSearchedData(`q=${searchTerm}`))
   }
-  (searchedContent)
+  
 
   const closeSearchResult = () => {
     inputFocus === true && setInputFocus(false);
