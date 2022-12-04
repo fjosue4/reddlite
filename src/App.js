@@ -11,17 +11,19 @@ import NavBar from './components/NavBar/NavBar'
 import { useSelector } from 'react-redux'
 import Trending from './components/Trending/Trending'
 import PostAndCommunity from './components/PostAndCommunity/PostAndCommunity'
-import ModalPreview from './components/ModalPreview/ModalPreview'
 import SearchBar from './components/SearchBar/SearchBar'
 import './responsive.css'
 import PostModal from './components/ModalPreview/PostModal'
+import UserModal from './components/ModalPreview/UserModal'
 
 function App () {
   // fetching theme state from redux-store
 
   const style = useSelector(state => state.style);
-  const modalState = useSelector(state => state.modal);
-  const [currentModal, setCurrentModal] = useState(false);
+  const userModalState = useSelector(state => state.modal);
+  const postModalState = useSelector(state => state.post)
+  const [currentUserModal, setCurrentUserModal] = useState(false);
+  const [currentPostModal, setCurrentPostModal] = useState(false);
   const [theme, setTheme] = useState('');
 
   // here we are accessing the style property of state
@@ -31,8 +33,12 @@ function App () {
   }, [style])
 
   useEffect(() => {
-    setCurrentModal(modalState.showModal) 
-  }, [modalState])
+    setCurrentUserModal(userModalState.showUserModal) 
+  }, [userModalState])
+
+  useEffect(()=> {
+    setCurrentPostModal(postModalState.showPostModal)
+  }, [postModalState])
 
   return (
     <div className='App' id={theme}>
@@ -42,12 +48,12 @@ function App () {
           <SearchBar />
         </div>
         <Trending />
-        {/* <PostModal /> */}
         <div className='body-content'>
         <h2>Popular posts</h2>
         <PostAndCommunity />
-        {currentModal && <ModalPreview />}
+        {currentUserModal && <UserModal />}
         {/* modal post preview */}
+        {currentPostModal && <PostModal />}
         
         </div>
       </div>

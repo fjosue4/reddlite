@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { changeModal } from '../../store/modal/modalSlice'
 import ReactImageFallback from 'react-image-fallback'
 
-const ModalPreview = () => {
+const UserModal = () => {
   const dispatch = useDispatch()
   const { info, data } = useSelector((state) => state.modal)
 
@@ -38,7 +38,7 @@ const ModalPreview = () => {
     })
 
   const modalHandler = () => {
-    dispatch(changeModal.toggleModal())
+    dispatch(changeModal.toggleModal)
   }
 
   const numFormatter = (num) => {
@@ -164,4 +164,4 @@ const ModalPreview = () => {
   )
 }
 
-export default ModalPreview
+export default UserModal

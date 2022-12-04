@@ -3,7 +3,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { fetchUserData, fetchCommunityData } from '../../api/index'
 
 const initialState = {
-  showModal: false,
+  showUserModal: false,
   info: {},
   data: [],
   loading: false,
@@ -24,7 +24,7 @@ const modalSlice = createSlice({
   initialState,
   reducers: {
     toggleModal: state => {
-      state.showModal = !state.showModal
+      state.showUserModal = !state.showUserModal
     },
     updateInfo: (state, action) => {
       state.info = action.payload
