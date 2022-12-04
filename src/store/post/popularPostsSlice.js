@@ -1,13 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { fetchPopularPostsData } from "../../api";
+import { fetchPopularPostsData, fetchHomePopularData } from "../../api";
 
 export const fetchPopularPosts = createAsyncThunk(
     'popularPosts/getPopularPosts',
     async paramData => {
-        const response = await fetchPopularPostsData(paramData);
+        const response = await fetchHomePopularData(paramData);
         return response.data.data.children;
     }
 )
+
+
 
 const popularPostsSlice = createSlice({
     name: 'popularPosts',

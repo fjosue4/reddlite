@@ -49,7 +49,6 @@ function SearchBar (props) {
         placeholder='Search ReddLite'
         className='search-input'
       ></input>
-      {/* <button onClick={handleSearch}>Search</button> */}
       </div>
       {inputFocus === true ? <SearchedResult searchTerm={searchTerm} /> : null}
     </div>
