@@ -38,7 +38,7 @@ const UserModal = () => {
     })
 
   const modalHandler = () => {
-    dispatch(changeModal.toggleModal)
+    dispatch(changeModal.toggleModal())
   }
 
   const numFormatter = (num) => {
