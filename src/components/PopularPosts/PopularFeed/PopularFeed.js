@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectPopularPosts } from '../../../store/post/popularPostsSlice';
 import DummyIcon from '../../../img/reddit-logo.svg';
 import './PopularFeed.css';
+import { getComments, postSliceActions } from '../../../store/post/postSlice';
 
 const PopularFeed = () => {
     const popularPosts = useSelector(selectPopularPosts);
     const {data, loading, error} = popularPosts;
+
+    const dispatch = useDispatch();
   
     /*
       convertToK is the function using
@@ -71,6 +74,12 @@ const PopularFeed = () => {
     function mouseOutColor(){
     }
 
+
+    const modalHandler = (post) => {
+      dispatch(postSliceActions.updatePost(post))
+      dispatch(getComments(post.data.permalink))
+    }
+
     if(data){
       return (
       <div className='popularFeed'>
@@ -86,7 +95,7 @@ const PopularFeed = () => {
                 <path d="M20 8L10 18L0 8H6V0H14V8H20ZM10 15L15 10H12V2H8V10H5L10 15Z" fill="#878A8C"/>
                 </svg>
               </div>
-              <div className='postContent'>
+              <div className='postContent' onClick={() => modalHandler(eachData)}>
                 <div className="postHeader">
                   <div className='leftPostHeader'>
                     {createImg(eachData.data.all_awardings[0])}

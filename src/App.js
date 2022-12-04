@@ -45,6 +45,8 @@ function App () {
         <h2>Popular posts</h2>
         <PostAndCommunity />
         {currentModal && <ModalPreview />}
+        {/* modal post preview */}
+        
         </div>
       </div>
     </div>

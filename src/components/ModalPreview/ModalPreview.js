@@ -31,7 +31,7 @@ const ModalPreview = () => {
         upVoteRatio: item?.data?.upvote_ratio,
         // Post data: username and image who commented + comment for that post
         comments: item?.data,
-        permalink: item?.data?.permalink
+        permalink: item?.data?.permalink,
       }
 
       return updated_item

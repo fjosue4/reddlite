@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getPostData } from '../../store/post/postSlice'
 const permalink =
   '/r/mildlyinfuriating/comments/s1gd86/jkfl_redddit_meta_posts/'
+
+
 const Comp = () => {
   const disptach = useDispatch()
   const { data } = useSelector((state) => state.post)

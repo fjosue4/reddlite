@@ -3,10 +3,12 @@ import { fetchPostData } from '../../api'
 const initialState = {
   loading: false,
   data: [],
+  post: [],
+  permalink: '',
   error: null,
 }
 
-const getPostData = createAsyncThunk('post/getPostData', async (url) => {
+export const getComments = createAsyncThunk('post/getPostData', async (url) => {
   const res = await fetchPostData(url)
   return res.data[1].data.children
 })
@@ -14,7 +16,11 @@ const getPostData = createAsyncThunk('post/getPostData', async (url) => {
 const postSlice = createSlice({
   name: 'post',
   initialState,
-  reducers: {},
+  reducers: {
+    updatePost: (state, action) => {
+      state.post = action.payload
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(getPostData.pending, (state) => {
       state.loading = true
@@ -32,4 +38,5 @@ const postSlice = createSlice({
 })
 
 export default postSlice.reducer
-export { getPostData }
+
+export const postSliceActions = postSlice.actions
