@@ -78,6 +78,7 @@ const PopularFeed = () => {
     const modalHandler = (post) => {
       dispatch(postSliceActions.updatePost(post))
       dispatch(getComments(post.data.permalink))
+      dispatch(postSliceActions.toggleModal())
     }
 
     if(data){

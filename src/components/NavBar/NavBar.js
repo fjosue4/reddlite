@@ -22,17 +22,6 @@ function NavBar (props) {
     dispatch(getHomeData())
   }, [dispatch, getHomeData])
 
-  // Fetching post data just to test ... Got it!
-  const post = useSelector(state => state.post)
-  useEffect(() => {
-    dispatch(
-      getPostData(
-        'Cricket',
-        'yjy0lk/match_thread_35th_match_group_2_bangladesh_vs/'
-      )
-    )
-  }, [dispatch, getPostData])
-
   // Fetching community data just to test
   const community = useSelector(state => state.community)
   useEffect(() => {

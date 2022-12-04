@@ -14,6 +14,7 @@ import PostAndCommunity from './components/PostAndCommunity/PostAndCommunity'
 import ModalPreview from './components/ModalPreview/ModalPreview'
 import SearchBar from './components/SearchBar/SearchBar'
 import './responsive.css'
+import PostModal from './components/ModalPreview/PostModal'
 
 function App () {
   // fetching theme state from redux-store
@@ -41,6 +42,7 @@ function App () {
           <SearchBar />
         </div>
         <Trending />
+        {/* <PostModal /> */}
         <div className='body-content'>
         <h2>Popular posts</h2>
         <PostAndCommunity />
