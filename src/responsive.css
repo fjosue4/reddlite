@@ -43,6 +43,28 @@
     .mobile-search {
         display: flex;
     }
+
+    .modal-body {
+        margin: 0 !important;
+    }
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 90% !important;
+    }
+
+    .modal-content, .modal-body, .posts-content-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-post {
+        width: 80%;
+    }
+
 }
 
 @media screen and (max-width: 800px) {
@@ -59,25 +81,16 @@
         width: 45%;
     }
 
-    .modal-content, .modal-body, .posts-content-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .modal-body {
-        margin: 0;
-    }
-
     .image-content, .text-only, .post-preview-left {
         width: 78%;
     }
 
     .modal-head {
-        position: relative;
-        margin: 10px auto !important;
+        position: relative !important;
+        margin: 10px !important;
         top: auto;
-        left: auto;
+        left: auto !important;
+        justify-content: flex-start !important;
     }
 }
 
@@ -163,5 +176,13 @@
 
     .modal-content {
         width: 94%;
+    }
+
+    .comment-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.1rem !important;
+        margin-bottom: 2rem;
+
     }
 }

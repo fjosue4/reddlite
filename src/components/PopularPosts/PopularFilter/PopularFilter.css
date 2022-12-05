@@ -65,3 +65,7 @@
 .popularFilter div h4{
     margin-left: 0.5rem;
 }
+
+.disabled-button {
+    cursor: not-allowed !important;
+}

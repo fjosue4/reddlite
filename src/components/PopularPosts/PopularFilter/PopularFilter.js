@@ -53,9 +53,9 @@ const PopularFilter = () => {
 
   return (
     <div className="popularFilter">
-      <select name="placeOption" onChange={countryChangeHandler}>
-        <option value="GLOBAL">Global</option>
-        <option value="AR">Argentina</option>
+      <select name="placeOption" className='disabled-button' onChange={countryChangeHandler} disabled>
+         <option value="GLOBAL">Global</option>
+        {/*<option value="AR">Argentina</option>
         <option value="AU">Australia</option>
         <option value="BG">Bulgaria</option>
         <option value="CA">Canada</option>
@@ -87,7 +87,7 @@ const PopularFilter = () => {
         <option value="TW">Taiwan</option>
         <option value="TH">Thailand</option>
         <option value="TR">Turkey</option>
-        <option value="GB">United Kingdom</option>
+        <option value="GB">United Kingdom</option> */}
       </select>
 
       <div
