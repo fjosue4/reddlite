@@ -221,3 +221,23 @@
 .author-photo-post img {
   width: 28px;
 }
+
+.comment-head {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.comments-content-section {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 84%;
+
+}
+
+.comment-body h3 {
+  margin-top: 0;
+  font-weight: 400;
+}

@@ -22,6 +22,8 @@ function PostModal () {
       return true;
     }
 
+    let dateFormat = new Date(0);
+
     const commentsData = comments.map(({ data }) => ({
         author: data?.author,
         body: data?.body,
@@ -79,18 +81,18 @@ function PostModal () {
                       </div>
           <div className="comments-content-section">
             {/* Fetch data from user/community posts here */}
-            {comments.map((item) => {
-              return (
-                    <div className="text-only">
-                      <div className="post-preview-left">
-                        <h3>{item.title}</h3>
-                        {item.text && <p className="p-preview">{item.text}</p>}
-                        <a href={item.url}>
-                          <p>{item.url}</p>
-                        </a>
-                        {item.is_video && item.videoLink}
-                      </div>
-                    </div>
+            {commentsData.map((item) => {
+            return (
+              <div className="post-comment" key={item.created}>
+                <div className="comment-head">
+                  <></>
+                  <p>{`/u/${item.author}`}</p>
+                  <span>{new Date(item.created * 1000).toLocaleDateString()}</span>
+                </div>
+                <div className="comment-body">
+                  <h3>{item.body}</h3>
+                  </div>
+              </div>
               )
             })}
           </div>
