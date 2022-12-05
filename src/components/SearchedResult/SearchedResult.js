@@ -102,6 +102,7 @@ const SearchedResult = props => {
   return (
     <div className='all-search-results'>
       {searchTerm === '' && <div className='search-hint'><h4>Hint: Fill in the field above...</h4><div><Icon icon='ant-design:search-outlined' className='hint-icon' /></div></div>}
+      {searchTerm.length > 0 & searchTerm.length < 4 ? <div className='search-hint'><h4>Try something more specific...</h4><div><Icon icon='ant-design:search-outlined' className='hint-icon' /></div></div>: null}
       {loading ? [...Array(6)].map(() => <SkeletonResult />) : results}
     </div>
   )
