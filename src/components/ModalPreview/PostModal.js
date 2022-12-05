@@ -22,8 +22,6 @@ function PostModal () {
       return true;
     }
 
-    let dateFormat = new Date(0);
-
     const commentsData = comments.map(({ data }) => ({
         author: data?.author,
         body: data?.body,
@@ -46,22 +44,22 @@ function PostModal () {
           <ReactImageFallback
               className="r-main-picture"
               src={
-                post?.data.snoovatar_img?.trim() === ''
-                  ? post?.data.icon_img
-                  : post?.data.snoovatar_img
+                post?.data?.snoovatar_img?.trim() === ''
+                  ? post?.data?.icon_img
+                  : post?.data?.snoovatar_img
               }
               fallbackImage="https://www.redditstatic.com/avatars/defaults/v2/avatar_default_4.png"
             />
           </div>
           <p className="url-preview">
             /
-            {`u/${post.data?.name}`}
+            {`u/${post?.data?.name}`}
           </p>
         </div>
         <div className="modal-body">
           <div className="main-post">
-            <h3>{post.data?.title}</h3>
-            <div className="thumbnail">{someUnwantedImg(post.data?.thumbnail) && <img src={post.data.thumbnail} alt="thumbnail" />}</div>
+            <h3>{post?.data?.title}</h3>
+            <div className="thumbnail">{someUnwantedImg(post?.data?.thumbnail) && <img src={post.data?.thumbnail} alt="thumbnail" />}</div>
           </div>
           <div className="post-preview-stats">
                         <div className="comments-amount">

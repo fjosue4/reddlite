@@ -4,6 +4,7 @@ import './Trending.css'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getTrendingData } from '../../store/search/searchSlice'
+import { getComments, postSliceActions } from '../../store/post/postSlice';
 
 function Trending () {
   // To dispatch the action
@@ -13,6 +14,14 @@ function Trending () {
     dispatch(getTrendingData())
   }, [])
   const { trendingData } = useSelector(state => state.search)
+
+  function openPostModal(post) {
+    console.log(post)
+    dispatch(postSliceActions.updatePost(post))
+    dispatch(getComments(post.permalink))
+    dispatch(postSliceActions.toggleModal())
+
+  }
 
   
   let fallbackImage =
@@ -57,13 +66,13 @@ function Trending () {
       <div className='trendings'>
         {trendingData?.map((data, index) => (
           <div
-            key={index}
             className='trending'
             style={
               isValidUrl(data.thumbnail)
                 ? { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${data.thumbnail})` }
                 : { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${fallbackImage})`  }
             }
+            onClick={() => openPostModal(data)}
           >
             <p>{data.title}</p>
             <div className='trend'>
