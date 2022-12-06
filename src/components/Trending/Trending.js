@@ -4,30 +4,28 @@ import './Trending.css'
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { getTrendingData } from '../../store/search/searchSlice'
-import { getComments, postSliceActions } from '../../store/post/postSlice';
+import { getComments, postSliceActions } from '../../store/post/postSlice'
 
-function Trending () {
+function Trending() {
   // To dispatch the action
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(getTrendingData())
   }, [])
-  const { trendingData } = useSelector(state => state.search)
+  const { trendingData } = useSelector((state) => state.search)
 
   function openPostModal(post) {
     console.log(post)
     dispatch(postSliceActions.updatePost(post))
-    dispatch(getComments(post.permalink))
+    dispatch(getComments(post.data.permalink))
     dispatch(postSliceActions.toggleModal())
-
   }
 
-  
   let fallbackImage =
     'https://a.thumbs.redditmedia.com/Qr4cH1NmdrdxTac8wT3MbN-cNBU7uJear0HT6UeWwP8.jpg'
 
-  const isValidUrl = urlString => {
+  const isValidUrl = (urlString) => {
     var urlPattern = new RegExp(
       '^(https?:\\/\\/)?' + // validate protocol
       '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // validate domain name
@@ -35,11 +33,10 @@ function Trending () {
       '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // validate port and path
       '(\\?[;&a-z\\d%_.~+=-]*)?' + // validate query string
         '(\\#[-a-z\\d_]*)?$',
-      'i'
+      'i',
     ) // validate fragment locator
     return !!urlPattern.test(urlString)
   }
-
 
   // accessing data which is need to be in trending tile
   // 1. name
@@ -61,30 +58,35 @@ function Trending () {
   // for icon  data.icon_img , use fall
 
   return (
-    <div className='trending-section'>
+    <div className="trending-section">
       <h2>Trending</h2>
-      <div className='trendings'>
+      <div className="trendings">
         {trendingData?.map((data, index) => (
           <div
-            className='trending'
+            className="trending"
             style={
-              isValidUrl(data.thumbnail)
-                ? { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${data.thumbnail})` }
-                : { backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${fallbackImage})`  }
+              isValidUrl(data?.data?.thumbnail)
+                ? {
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${data?.data?.thumbnail})`,
+                  }
+                : {
+                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${fallbackImage})`,
+                  }
             }
             onClick={() => openPostModal(data)}
           >
-            <p>{data.title}</p>
-            <div className='trend'>
-              <img className='postIcon'
-              src={data.all_awardings[0].icon_url} />
-              <a href=''>
-                <span>{data.subreddit_name_prefixed}</span>
+            <p>{data?.data?.title}</p>
+            <div className="trend">
+              <img
+                className="postIcon"
+                src={data?.data?.all_awardings[0].icon_url}
+              />
+              <a href="">
+                <span>{data?.data?.subreddit_name_prefixed}</span>
               </a>
             </div>
           </div>
         ))}
-        
       </div>
     </div>
   )

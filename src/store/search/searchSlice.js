@@ -44,7 +44,8 @@ export const getTrendingData = createAsyncThunk(
   'index/getTrendingData',
   async () => {
     const trending = await fetchSearchedData('q=trending')
-    return trending.data.data.children.slice(0, 4).map(item => item.data)
+    //console.log(trending.data.data.children)
+    return trending.data.data.children.slice(0, 4)
   }
 )
 
