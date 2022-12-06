@@ -1,29 +1,9 @@
 import React, { useState } from 'react'
 import './BestCommunites.css'
 import { Icon } from '@iconify/react'
+import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getSubbreditsList } from '../../../store/subreddits/subredditSlice'
-import { changeModal, getData } from '../../../store/modal/modalSlice'
-import { useSelector, useDispatch } from 'react-redux'
-
-
-const filterTopFiveCommunites = (data) => {
-  let topFive = []
-    for(let i = 0 ; i < data.length ; i++){
-      if(data[i].data.community_icon)
-        topFive.push(data[i])
-      if (topFive.length >= 5) break;
-    }
-
-
-    return topFive.map(item => {
-      return {
-        community_icon : item.data?.community_icon?.replace("&amp;","&"),
-        display_name : item.data?.display_name_prefixed
-      }
-    })
-}
-
 
 const BestCommunites = () => {
   const dispatch = useDispatch()
@@ -33,13 +13,24 @@ const BestCommunites = () => {
 
   useEffect(() => {
     dispatch(getSubbreditsList())
-  }, []);
+  }, [])
+  const filterTopFiveCommunites = (data) => {
+    let topFive = []
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].data.community_icon) topFive.push(data[i])
+      if (topFive.length >= 5 &&  !more) break
+    }
 
-
-  
+    return topFive.map((item) => {
+      return {
+        community_icon: item.data?.community_icon?.replace('&amp;', '&'),
+        display_name: item.data?.display_name_prefixed,
+      }
+    })
+  }
 
   const topFive = filterTopFiveCommunites(data)
-  
+
   return (
     <div class="best-communities-container">
       <div class="best-communities-heading">Recommended communities</div>
@@ -61,12 +52,10 @@ const BestCommunites = () => {
             />
           </button>
         </div>
-        <button class="btn"><Icon className='right-arrow' icon="ic:baseline-keyboard-arrow-right" /></button>
-      </div>)
-      )}
+      ))}
       <div class="button-wrapper">
         <button onClick={() => setMore((prev) => !prev)} class="btn">
-          {more ? 'Hide' : 'All'}
+          {more ? 'Hide' : 'More'}
         </button>
       </div>
     </div>
