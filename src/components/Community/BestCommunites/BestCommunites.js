@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './BestCommunites.css'
 import { Icon } from '@iconify/react'
 import { useEffect } from 'react'
@@ -15,6 +15,7 @@ const filterTopFiveCommunites = (data) => {
       if (topFive.length >= 5) break;
     }
 
+
     return topFive.map(item => {
       return {
         community_icon : item.data?.community_icon?.replace("&amp;","&"),
@@ -24,26 +25,17 @@ const filterTopFiveCommunites = (data) => {
 }
 
 
-
 const BestCommunites = () => {
   const dispatch = useDispatch()
 
   const { data, error, loading } = useSelector((state) => state.subreddits)
+  const [more, setMore] = useState(false)
 
   useEffect(() => {
     dispatch(getSubbreditsList())
   }, []);
 
-  // const openModal = community => {
-  //   const args =
-  //   community.kind === 't2'
-  //       ? { type: 'user', title: community.display_name }
-  //       : { type: 'community', title: community.display_name }
-  
-  //   dispatch(changeModal.updateInfo(community))
-  //   dispatch(changeModal.toggleModal())
-  //   dispatch(getData(args))
-  // }
+
   
 
   const topFive = filterTopFiveCommunites(data)
@@ -51,20 +43,31 @@ const BestCommunites = () => {
   return (
     <div class="best-communities-container">
       <div class="best-communities-heading">Recommended communities</div>
-      {topFive.map((community, index) => (<div class="best-community-wrapper">
-        <div class="subreddit">
-          <span class="index">{index+1}</span>
-          <div class="best-community">
-            <div class="eclipse"><img src={community.community_icon}/></div>
-            <div class="thread">{community.display_name}</div>
+      {topFive.map((community, index) => (
+        <div class="best-community-wrapper">
+          <div class="subreddit">
+            <span class="index">{index + 1}</span>
+            <div class="best-community">
+              <div class="eclipse">
+                <img src={community.community_icon} />
+              </div>
+              <div class="thread">{community.display_name}</div>
+            </div>
           </div>
+          <button class="btn">
+            <Icon
+              className="right-arrow"
+              icon="ic:baseline-keyboard-arrow-right"
+            />
+          </button>
         </div>
-        {/* <button class="btn" onClick={()=> openModal(community)}><Icon className='right-arrow' icon="ic:baseline-keyboard-arrow-right" /></button> */}
         <button class="btn"><Icon className='right-arrow' icon="ic:baseline-keyboard-arrow-right" /></button>
       </div>)
       )}
       <div class="button-wrapper">
-        <button class="btn">All</button>
+        <button onClick={() => setMore((prev) => !prev)} class="btn">
+          {more ? 'Hide' : 'All'}
+        </button>
       </div>
     </div>
   )
