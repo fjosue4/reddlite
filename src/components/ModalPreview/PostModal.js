@@ -53,7 +53,7 @@ function PostModal () {
           </div>
           <p className="url-preview">
             /
-            {`u/${post?.data?.name}`}
+            {`u/${post?.data?.author}`}
           </p>
         </div>
         <div className="modal-body">

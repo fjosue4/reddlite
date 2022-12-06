@@ -101,7 +101,7 @@ const PopularFeed = () => {
                   <div className='leftPostHeader'>
                     {createImg(eachData.data.all_awardings[0])}
                     <p className='username'>{`r/${eachData.data.subreddit}`}</p>
-                    <p className='subredditName'>{`r/${eachData.data.author_fullname}`}</p>
+                    <p className='subredditName'>{`r/${eachData.data.author}`}</p>
                     {isNew(eachData.data.all_awardings[0])}
                   </div>
                 </div>
