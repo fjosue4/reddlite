@@ -1,9 +1,10 @@
 import React from 'react'
 import './BestCommunites.css'
 import { Icon } from '@iconify/react'
-import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getSubbreditsList } from '../../../store/subreddits/subredditSlice'
+import { changeModal, getData } from '../../../store/modal/modalSlice'
+import { useSelector, useDispatch } from 'react-redux'
 
 
 const filterTopFiveCommunites = (data) => {
@@ -14,7 +15,6 @@ const filterTopFiveCommunites = (data) => {
       if (topFive.length >= 5) break;
     }
 
-
     return topFive.map(item => {
       return {
         community_icon : item.data?.community_icon?.replace("&amp;","&"),
@@ -22,6 +22,7 @@ const filterTopFiveCommunites = (data) => {
       }
     })
 }
+
 
 
 const BestCommunites = () => {
@@ -33,11 +34,20 @@ const BestCommunites = () => {
     dispatch(getSubbreditsList())
   }, []);
 
-
+  // const openModal = community => {
+  //   const args =
+  //   community.kind === 't2'
+  //       ? { type: 'user', title: community.display_name }
+  //       : { type: 'community', title: community.display_name }
+  
+  //   dispatch(changeModal.updateInfo(community))
+  //   dispatch(changeModal.toggleModal())
+  //   dispatch(getData(args))
+  // }
   
 
   const topFive = filterTopFiveCommunites(data)
-
+  
   return (
     <div class="best-communities-container">
       <div class="best-communities-heading">Recommended communities</div>
@@ -49,6 +59,7 @@ const BestCommunites = () => {
             <div class="thread">{community.display_name}</div>
           </div>
         </div>
+        {/* <button class="btn" onClick={()=> openModal(community)}><Icon className='right-arrow' icon="ic:baseline-keyboard-arrow-right" /></button> */}
         <button class="btn"><Icon className='right-arrow' icon="ic:baseline-keyboard-arrow-right" /></button>
       </div>)
       )}
