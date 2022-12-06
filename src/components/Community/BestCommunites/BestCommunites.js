@@ -55,7 +55,7 @@ const BestCommunites = () => {
       ))}
       <div class="button-wrapper">
         <button onClick={() => setMore((prev) => !prev)} class="btn">
-          {more ? 'Hide' : 'More'}
+          {more ? 'Hide' : 'All'}
         </button>
       </div>
     </div>
