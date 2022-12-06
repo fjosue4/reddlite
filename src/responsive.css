@@ -32,6 +32,10 @@
         flex-wrap: wrap;
     }
 
+    .trending{
+        width: 45%;
+    }
+
     .postAndCommunity {
         flex-direction: column;
     }
@@ -77,9 +81,7 @@
         margin-right: 0;
     }
 
-    .trending {
-        width: 45%;
-    }
+
 
     .image-content, .text-only, .post-preview-left {
         width: 78%;
