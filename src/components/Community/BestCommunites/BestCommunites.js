@@ -4,8 +4,20 @@ import { Icon } from '@iconify/react'
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getSubbreditsList } from '../../../store/subreddits/subredditSlice'
+import { changeModal, getData } from '../../../store/modal/modalSlice'
 
 const BestCommunites = () => {
+  const openModal = (community) => {
+    const args =
+      community.kind === 't2'
+        ? { type: 'user', title: community.data?.display_name_prefixed }
+        : { type: 'community', title: community.data?.display_name_prefixed }
+
+    dispatch(changeModal.updateInfo(community))
+    dispatch(changeModal.toggleModal())
+    dispatch(getData(args))
+  }
+
   const dispatch = useDispatch()
 
   const { data, error, loading } = useSelector((state) => state.subreddits)
@@ -18,15 +30,15 @@ const BestCommunites = () => {
     let topFive = []
     for (let i = 0; i < data.length; i++) {
       if (data[i].data.community_icon) topFive.push(data[i])
-      if (topFive.length >= 5 &&  !more) break
+      if (topFive.length >= 5 && !more) break
     }
-
-    return topFive.map((item) => {
-      return {
-        community_icon: item.data?.community_icon?.replace('&amp;', '&'),
-        display_name: item.data?.display_name_prefixed,
-      }
-    })
+    return topFive
+    // return topFive.map((item) => {
+    //   return {
+    //     community_icon: item.data?.community_icon?.replace('&amp;', '&'),
+    //     display_name: item.data?.display_name_prefixed,
+    //   }
+    // })
   }
 
   const topFive = filterTopFiveCommunites(data)
@@ -40,12 +52,14 @@ const BestCommunites = () => {
             <span class="index">{index + 1}</span>
             <div class="best-community">
               <div class="eclipse">
-                <img src={community.community_icon} />
+                <img
+                  src={community.data?.community_icon?.replace('&amp;', '&')}
+                />
               </div>
-              <div class="thread">{community.display_name}</div>
+              <div class="thread">{community.data?.display_name_prefixed}</div>
             </div>
           </div>
-          <button class="btn">
+          <button onClick={() => openModal(community)} class="btn">
             <Icon
               className="right-arrow"
               icon="ic:baseline-keyboard-arrow-right"
