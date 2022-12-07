@@ -6,7 +6,7 @@ import { postSliceActions } from '../../store/post/postSlice'
 import ReactImageFallback from 'react-image-fallback'
 
 function PostModal() {
-  const { post, comments } = useSelector((state) => state.post)
+  const { post, comments, loading } = useSelector((state) => state.post)
   const dispatch = useDispatch()
   const changeModal = postSliceActions.toggleModal()
 
@@ -41,62 +41,108 @@ function PostModal() {
   return (
     <div class="modal">
       <div class="modal-content">
-        <div className="modal-head">
-          <span class="close" onClick={modalHandler}>
-            <Icon icon="eva:arrow-ios-back-fill" />
-          </span>
-          {/* <div className="author-photo-post">
-          <ReactImageFallback
-              className="r-main-picture"
-              src={
-                post?.data?.snoovatar_img?.trim() === ''
-                  ? post?.data?.icon_img
-                  : post?.data?.snoovatar_img
-              }
-              fallbackImage="https://www.redditstatic.com/avatars/defaults/v2/avatar_default_4.png"
-            />
-          </div> */}
-          <p className="url-preview">/{`u/${post?.data?.author}`}</p>
-        </div>
-        <div className="modal-body">
-          <div className="main-post">
-            <h3>{post?.data?.title}</h3>
-            <div className="thumbnail">
-              {someUnwantedImg(post?.data?.thumbnail) && (
-                <img src={post.data?.thumbnail} alt="thumbnail" />
-              )}
+        {loading ?
+          <>
+            <div className="modal-head">
+              <span class="close" onClick={modalHandler}>
+                <Icon icon="eva:arrow-ios-back-fill" />
+              </span>
+              <p className="url-preview-skeleton"></p>
             </div>
-          </div>
-          <div className="post-preview-stats">
-            <div className="comments-amount">
-              <Icon className="stats-icon" icon="fluent:comment-24-regular" />{' '}
-              Comments: {post.data?.num_comments}
-            </div>
-            <div className="upvote-ratio">
-              <Icon className="stats-icon" icon="mdi:arrow-up-bold-outline" />{' '}
-              {post.data?.upvote_ratio}% upvoted
-            </div>
-          </div>
-          <div className="comments-content-section">
-            {/* Fetch data from user/community posts here */}
-            {commentsData.map((item) => {
-              return (
-                <div className="post-comment" key={item.created}>
-                  <div className="comment-head">
-                    <></>
-                    <p>{`/u/${item.author}`}</p>
-                    <span>
-                      {new Date(item.created * 1000).toLocaleDateString()}
-                    </span>
-                  </div>
-                  <div className="comment-body">
-                    <h3>{item.body}</h3>
-                  </div>
+            <div className="modal-body">
+              <div className="main-post">
+                <h3 className='p-preview-skeleton'></h3>
+                <h3 className='p-preview-skeleton'></h3>
+                <h3 className='p-preview-skeleton'></h3>
+              </div>
+              <div className="post-preview-stats">
+                <div className="comments-amount">
+                  <Icon className="stats-icon" icon="fluent:comment-24-regular" />{' '}
+                  Comments:
                 </div>
-              )
-            })}
-          </div>
-        </div>
+                <div className="upvote-ratio">
+                  <Icon className="stats-icon" icon="mdi:arrow-up-bold-outline" />{' '}
+                  % upvoted
+                </div>
+              </div>
+              {[...Array(6)].map(() =>
+              <div className="comments-content-section">
+                    <div className="post-comment">
+                      <div className="comment-head">
+                        <></>
+                        <p className="url-preview-skeleton"></p>
+                        <p className="url-preview-skeleton"></p>
+                      </div>
+                      <div className="comment-body">
+                      <h3 className='p-preview-skeleton'></h3>
+                <h3 className='p-preview-skeleton'></h3>
+                <h3 className='p-preview-skeleton'></h3>
+                      </div>
+                    </div>
+              </div>)}
+            </div>
+          </>
+          :
+
+          <>
+            <div className="modal-head">
+              <span class="close" onClick={modalHandler}>
+                <Icon icon="eva:arrow-ios-back-fill" />
+              </span>
+              {/* <div className="author-photo-post">
+        <ReactImageFallback
+            className="r-main-picture"
+            src={
+              post?.data?.snoovatar_img?.trim() === ''
+                ? post?.data?.icon_img
+                : post?.data?.snoovatar_img
+            }
+            fallbackImage="https://www.redditstatic.com/avatars/defaults/v2/avatar_default_4.png"
+          />
+        </div> */}
+              <p className="url-preview">/{`u/${post?.data?.author}`}</p>
+            </div>
+            <div className="modal-body">
+              <div className="main-post">
+                <h3>{post?.data?.title}</h3>
+                <div className="thumbnail">
+                  {someUnwantedImg(post?.data?.thumbnail) && (
+                    <img src={post.data?.thumbnail} alt="thumbnail" />
+                  )}
+                </div>
+              </div>
+              <div className="post-preview-stats">
+                <div className="comments-amount">
+                  <Icon className="stats-icon" icon="fluent:comment-24-regular" />{' '}
+                  Comments: {post.data?.num_comments}
+                </div>
+                <div className="upvote-ratio">
+                  <Icon className="stats-icon" icon="mdi:arrow-up-bold-outline" />{' '}
+                  {post.data?.upvote_ratio}% upvoted
+                </div>
+              </div>
+              <div className="comments-content-section">
+                {/* Fetch data from user/community posts here */}
+                {commentsData.map((item) => {
+                  return (
+                    <div className="post-comment" key={item.created}>
+                      <div className="comment-head">
+                        <></>
+                        <p>{`/u/${item.author}`}</p>
+                        <span>
+                          {new Date(item.created * 1000).toLocaleDateString()}
+                        </span>
+                      </div>
+                      <div className="comment-body">
+                        <h3>{item.body}</h3>
+                      </div>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </>
+        }
       </div>
     </div>
   )

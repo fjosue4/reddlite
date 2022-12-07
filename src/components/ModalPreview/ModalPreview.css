@@ -279,7 +279,7 @@
   height: 14px;
 }
 
-.karma-or-members-skeleton, .post-preview-left-skeleton {
+.karma-or-members-skeleton, .post-preview-left-skeleton, .main-post, .comment-body {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
