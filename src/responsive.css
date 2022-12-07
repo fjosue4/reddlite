@@ -28,6 +28,14 @@
         display: none;
     }
 
+    .modal-head {
+        position: relative !important;
+        margin: 10px !important;
+        top: auto;
+        left: auto !important;
+        justify-content: flex-start !important;
+    }
+
     .trendings {
         flex-wrap: wrap;
     }
@@ -87,13 +95,6 @@
         width: 78%;
     }
 
-    .modal-head {
-        position: relative !important;
-        margin: 10px !important;
-        top: auto;
-        left: auto !important;
-        justify-content: flex-start !important;
-    }
 }
 
 @media screen and (max-width: 660px) {
