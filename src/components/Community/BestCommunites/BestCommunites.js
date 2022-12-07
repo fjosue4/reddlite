@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { getSubbreditsList } from '../../../store/subreddits/subredditSlice'
 import { changeModal, getData } from '../../../store/modal/modalSlice'
+import ReactImageFallback from 'react-image-fallback'
 
 const BestCommunites = () => {
   const openModal = (community) => {
@@ -15,6 +16,11 @@ const BestCommunites = () => {
 
     dispatch(changeModal.updateInfo(community))
     dispatch(changeModal.toggleModal())
+    dispatch(
+      changeModal.updateIcon(
+        community.data?.community_icon?.replace('&amp;', '&'),
+      ),
+    )
     dispatch(getData(args))
   }
 
@@ -27,6 +33,7 @@ const BestCommunites = () => {
     dispatch(getSubbreditsList())
   }, [])
   const filterTopFiveCommunites = (data) => {
+    console.log('Data', data)
     let topFive = []
     for (let i = 0; i < data.length; i++) {
       if (data[i].data.community_icon) topFive.push(data[i])
@@ -56,6 +63,7 @@ const BestCommunites = () => {
                   src={community.data?.community_icon?.replace('&amp;', '&')}
                 />
               </div>
+
               <div class="thread">{community.data?.display_name_prefixed}</div>
             </div>
           </div>

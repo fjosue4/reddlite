@@ -79,7 +79,7 @@ function Trending() {
             <div className="trend">
               <img
                 className="postIcon"
-                src={data?.data?.all_awardings[0].icon_url}
+                src={data?.data?.all_awardings[0]?.icon_url}
               />
               <a href="">
                 <span>{data?.data?.subreddit_name_prefixed}</span>

@@ -6,12 +6,13 @@ const initialState = {
   showUserModal: false,
   info: {},
   data: [],
+  icon: '',
   loading: false,
-  error: ''
+  error: '',
 }
 
 // reducer that will fetch the info about the user name
-export const getData = createAsyncThunk('modal/getData', async args => {
+export const getData = createAsyncThunk('modal/getData', async (args) => {
   const response =
     args.type === 'user'
       ? await fetchUserData(args.title)
@@ -23,12 +24,15 @@ const modalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    toggleModal: state => {
+    toggleModal: (state) => {
       state.showUserModal = !state.showUserModal
     },
     updateInfo: (state, action) => {
       state.info = action.payload
-    }
+    },
+    updateIcon: (state, action) => {
+      state.icon = action.payload
+    },
   },
   extraReducers: {
     [getData.pending]: (state, action) => {
@@ -41,8 +45,8 @@ const modalSlice = createSlice({
     [getData.rejected]: (state, action) => {
       state.loading = false
       state.error = action.error
-    }
-  }
+    },
+  },
 })
 
 export default modalSlice.reducer

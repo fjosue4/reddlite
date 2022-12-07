@@ -7,7 +7,10 @@ import ReactImageFallback from 'react-image-fallback'
 
 const UserModal = () => {
   const dispatch = useDispatch()
-  const { info, data } = useSelector((state) => state.modal)
+  const { info, data, icon } = useSelector((state) => state.modal)
+
+  console.log('INFO', info)
+  console.log('DATA', data)
 
   const categorical_data = data
     .filter((d) => d.kind === 't3')
@@ -38,6 +41,7 @@ const UserModal = () => {
     })
 
   const modalHandler = () => {
+    dispatch(changeModal.updateIcon(''))
     dispatch(changeModal.toggleModal())
   }
 
@@ -72,9 +76,11 @@ const UserModal = () => {
             <ReactImageFallback
               className="r-main-picture"
               src={
-                info?.data.snoovatar_img?.trim() === ''
+                icon
+                  ? icon
+                  : (info?.data.snoovatar_img?.trim() === ''
                   ? info?.data.icon_img
-                  : info?.data.snoovatar_img
+                  : info?.data.snoovatar_img)
               }
               fallbackImage="https://www.redditstatic.com/avatars/defaults/v2/avatar_default_4.png"
             />

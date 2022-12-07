@@ -34,7 +34,7 @@ const PopularFeed = () => {
       Create img use for if the user icon does exist
       If yes pass it to the screen 
       If no passing a dummy one instead
-    */
+  */
   function createImg(url) {
     if (url) {
       return <img src={url.icon_url} alt="icon" className="postIcon" />
