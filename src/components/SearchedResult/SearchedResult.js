@@ -36,6 +36,8 @@ const SearchedResult = (props) => {
     }
   }
 
+  console.log(data);
+
   //We must pass type of content (user, post, community) and the user or id to display info
   const openModal = (info) => {
     const args =
@@ -127,7 +129,7 @@ const SearchedResult = (props) => {
           </div>
         </div>
       ) : null}
-      {loading ? [...Array(6)].map(() => <SkeletonResult />) : results}
+      {loading || searchTerm.length < 4 ? [...Array(6)].map(() => <SkeletonResult />) : results}
     </div>
   )
 }

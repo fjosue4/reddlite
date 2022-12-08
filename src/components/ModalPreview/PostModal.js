@@ -12,6 +12,7 @@ function PostModal() {
 
   const modalHandler = () => {
     dispatch(changeModal)
+    dispatch(changeModal.comments([]))
   }
 
   function someUnwantedImg(img) {

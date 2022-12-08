@@ -20,7 +20,6 @@
 
 .all-search-results::-webkit-scrollbar-thumb {
 	background-color: #1484D6;
-    border-radius: 1rem;
 }
 
 #light .all-search-results {

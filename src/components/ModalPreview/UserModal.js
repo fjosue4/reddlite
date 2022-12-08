@@ -43,6 +43,7 @@ const UserModal = () => {
   const modalHandler = () => {
     dispatch(changeModal.updateIcon(''))
     dispatch(changeModal.toggleModal())
+    dispatch(changeModal.data([]))
   }
 
   const numFormatter = (num) => {
