@@ -270,7 +270,7 @@
 }
 
 .p-preview-skeleton:last-child {
-  width: 80%;
+  width: 50%;
 }
 
 .name-skeleton, .second-info-skeleton {
@@ -299,6 +299,12 @@
 
   100% {
       background-color: hsl(200, 20%, 95%);
+  }
+}
+
+@media screen and (max-width: 1800px) {
+  .p-preview-skeleton {
+    width: 52rem;
   }
 }
 
