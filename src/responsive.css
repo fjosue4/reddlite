@@ -188,4 +188,27 @@
         margin-bottom: 2rem;
 
     }
+    .popularPosts {
+        flex: 100%;
+        width: 98%;
+        margin: 0 auto;
+    }
+    .modal-body, .main-post {
+        padding: 0 1rem;
+        width: 98%;
+    }
+    .modal-content, .modal-body {
+        justify-content: flex-start;
+    }
+
+    .main-post {
+        flex-direction: column;
+        align-items: center;
+    }
+    .main-post {
+        text-align: center;
+    }
+    .image-content, .text-only{
+        width: 94% !important;
+    }
 }
