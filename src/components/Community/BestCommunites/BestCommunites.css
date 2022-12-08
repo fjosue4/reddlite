@@ -19,8 +19,9 @@
   min-width: 300px;
   border: 1px solid var(--light-outline);
   border-radius: 3px 3px 0px 0px;
-  margin-bottom: 16px;
+  margin-bottom: 0;
 }
+
 .best-communities-heading {
   padding: 24px;
 }
@@ -35,6 +36,7 @@
 .best-community-wrapper:nth-child(6) {
   border-bottom: 1px solid var(--light-outline);
 }
+
 .best-community-wrapper {
   display: flex;
   justify-content: space-between;

@@ -1,10 +1,14 @@
 .postAndCommunity{
     display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+    gap: 3rem;
 }
 
 .popularPosts{
     
-    flex: 50%;
+    flex: 70%;
 }
 
 .community{

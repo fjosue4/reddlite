@@ -54,7 +54,6 @@ function App () {
         {currentUserModal && <UserModal />}
         {/* modal post preview */}
         {currentPostModal && <PostModal />}
-        
         </div>
       </div>
     </div>
