@@ -3,7 +3,7 @@ import './Trending.css'
 
 import { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getTrendingData } from '../../store/search/searchSlice'
+import { getTrendingData } from '../../store/trending/trendingSlice'
 import { getComments, postSliceActions } from '../../store/post/postSlice'
 
 function Trending() {
@@ -13,7 +13,8 @@ function Trending() {
   useEffect(() => {
     dispatch(getTrendingData())
   }, [])
-  const { trendingData, loading } = useSelector((state) => state.search)
+  // const { trendingData, loading } = useSelector((state) => state.search)
+  const { trendingData, loading } = useSelector((state) => state.trending)
 
   function openPostModal(post) {
     console.log(post)
@@ -60,43 +61,44 @@ function Trending() {
   return (
     <div className="trending-section">
       <h2>Trending</h2>
-      {loading ?
-      <div className="trendings">
-      {[...Array(4)].map(() =>
-              <div className="trending-skeleton">
-                <p className='url-preview-skeleton'></p>
-                </div>
-          )}
-          </div>
-      :
-      <div className="trendings">
-        {trendingData?.map((data, index) => (
-          <div
-            className="trending"
-            style={
-              isValidUrl(data?.data?.thumbnail)
-                ? {
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${data?.data?.thumbnail})`,
-                  }
-                : {
-                    backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${fallbackImage})`,
-                  }
-            }
-            onClick={() => openPostModal(data)}
-          >
-            <p>{data?.data?.title}</p>
-            <div className="trend">
-              <img
-                className="postIcon"
-                src={data?.data?.all_awardings[0]?.icon_url}
-              />
-              <a href="">
-                <span>{data?.data?.subreddit_name_prefixed}</span>
-              </a>
+      {loading ? (
+        <div className="trendings">
+          {[...Array(4)].map(() => (
+            <div className="trending-skeleton">
+              <p className="url-preview-skeleton"></p>
             </div>
-          </div>
-        ))}
-      </div>}
+          ))}
+        </div>
+      ) : (
+        <div className="trendings">
+          {trendingData?.map((data, index) => (
+            <div
+              className="trending"
+              style={
+                isValidUrl(data?.data?.thumbnail)
+                  ? {
+                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${data?.data?.thumbnail})`,
+                    }
+                  : {
+                      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.84),rgba(0, 0, 0, 0.84)) , url(${fallbackImage})`,
+                    }
+              }
+              onClick={() => openPostModal(data)}
+            >
+              <p>{data?.data?.title}</p>
+              <div className="trend">
+                <img
+                  className="postIcon"
+                  src={data?.data?.all_awardings[0]?.icon_url}
+                />
+                <a href="">
+                  <span>{data?.data?.subreddit_name_prefixed}</span>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

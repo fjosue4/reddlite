@@ -1,7 +1,7 @@
 import {
   configureStore,
   combineReducers,
-  getDefaultMiddleware
+  getDefaultMiddleware,
 } from '@reduxjs/toolkit'
 
 import homeReducer from './home/homeSlice'
@@ -13,6 +13,7 @@ import styleReducer from './styleSlice'
 import popularPostsReducer from './post/popularPostsSlice'
 import modalReducer from './modal/modalSlice'
 import subbreditReducer from './subreddits/subredditSlice'
+import trendingReducer from './trending/trendingSlice'
 
 // Persistance Code
 import {
@@ -23,14 +24,14 @@ import {
   PAUSE,
   PERSIST,
   PURGE,
-  REGISTER
+  REGISTER,
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 const persistConfig = {
   key: 'root',
   version: 1,
   storage,
-  whitelist: ['style']
+  whitelist: ['style'],
 }
 
 const rootReducer = combineReducers({
@@ -42,19 +43,20 @@ const rootReducer = combineReducers({
   style: styleReducer,
   popularPosts: popularPostsReducer,
   modal: modalReducer,
-  subreddits:subbreditReducer
+  subreddits: subbreditReducer,
+  trending: trendingReducer,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: getDefaultMiddleware =>
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
-      }
-    })
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 })
 
 export let persistor = persistStore(store)
