@@ -211,4 +211,24 @@
     .image-content, .text-only{
         width: 94% !important;
     }
+    .text-only {
+        align-items: center;
+        text-align: center;
+    }
+
+    .post-preview-left {
+        text-align: center !important;
+        width: 98%;
+    } 
+
+    .photo-section {
+        width: 98%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .disabled-button {
+        display: none;
+    }
 }
