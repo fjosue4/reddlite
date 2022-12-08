@@ -17,4 +17,4 @@
 
 ### Build using...
 
-For this app, we used React JS, Redux and required the Reddit API.
+For this app, we used React JS, Redux Toolkit and required the Reddit API.
