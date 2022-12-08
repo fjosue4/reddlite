@@ -17,7 +17,6 @@ function Trending() {
   const { trendingData, loading } = useSelector((state) => state.trending)
 
   function openPostModal(post) {
-    console.log(post)
     dispatch(postSliceActions.updatePost(post))
     dispatch(getComments(post.data.permalink))
     dispatch(postSliceActions.toggleModal())
@@ -57,7 +56,6 @@ function Trending() {
   // rn, for title just use title and index as used in line 73
 
   // for icon  data.icon_img , use fall
-  console.log(trendingData)
   return (
     <div className="trending-section">
       <h2>Trending</h2>

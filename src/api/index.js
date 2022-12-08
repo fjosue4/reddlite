@@ -22,7 +22,6 @@ export const fetchPopularPostsData = (param) => API.get(`/hot.json?${param}`)
 // Fetching Data for the Home Page , according to diffrent params
 
 export const fetchHomePopularData = (param) => {
-  console.log("param",param)
   return API.get(`/r/popular/${param}`)
 }
 

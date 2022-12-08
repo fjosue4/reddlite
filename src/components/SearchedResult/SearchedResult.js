@@ -36,7 +36,6 @@ const SearchedResult = (props) => {
     }
   }
 
-  console.log(data);
 
   //We must pass type of content (user, post, community) and the user or id to display info
   const openModal = (info) => {

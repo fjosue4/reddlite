@@ -150,6 +150,7 @@
   -webkit-line-clamp: 2;
   margin: 0;
   overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 .posts-content-section h3 {

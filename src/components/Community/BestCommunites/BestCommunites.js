@@ -33,7 +33,6 @@ const BestCommunites = () => {
     dispatch(getSubbreditsList())
   }, [])
   const filterTopFiveCommunites = (data) => {
-    console.log('Data', data)
     let topFive = []
     for (let i = 0; i < data.length; i++) {
       if (data[i].data.community_icon) topFive.push(data[i])

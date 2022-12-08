@@ -8,10 +8,7 @@ import ReactImageFallback from 'react-image-fallback'
 const UserModal = () => {
   const dispatch = useDispatch()
   const { info, data, icon, loading } = useSelector((state) => state.modal)
-
-  console.log('INFO', info)
-  console.log('DATA', data)
-
+  
   const categorical_data = data
     .filter((d) => d.kind === 't3')
     .map((item) => {
