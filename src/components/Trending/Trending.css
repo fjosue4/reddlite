@@ -71,7 +71,20 @@
     text-decoration: none;
 }
 
-/* .trend > img {
-    
-} */
+.trending-skeleton {
+    animation: skeleton-loading 1s linear infinite alternate;
+    min-width: 200px;
+    min-height: 180px;
+    border-radius: 8px;
+    margin: 5px;
+}
 
+@keyframes skeleton-loading {
+    0% {
+        background-color: hsl(200, 20%, 70%);
+    }
+  
+    100% {
+        background-color: hsl(200, 20%, 95%);
+    }
+  }

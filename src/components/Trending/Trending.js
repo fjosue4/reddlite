@@ -13,7 +13,7 @@ function Trending() {
   useEffect(() => {
     dispatch(getTrendingData())
   }, [])
-  const { trendingData } = useSelector((state) => state.search)
+  const { trendingData, loading } = useSelector((state) => state.search)
 
   function openPostModal(post) {
     console.log(post)
@@ -60,6 +60,15 @@ function Trending() {
   return (
     <div className="trending-section">
       <h2>Trending</h2>
+      {loading ?
+      <div className="trendings">
+      {[...Array(4)].map(() =>
+              <div className="trending-skeleton">
+                <p className='url-preview-skeleton'></p>
+                </div>
+          )}
+          </div>
+      :
       <div className="trendings">
         {trendingData?.map((data, index) => (
           <div
@@ -87,7 +96,7 @@ function Trending() {
             </div>
           </div>
         ))}
-      </div>
+      </div>}
     </div>
   )
 }
