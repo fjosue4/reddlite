@@ -84,7 +84,6 @@ function PostModal() {
             </div>
           </>
           :
-
           <>
             <div className="modal-head">
               <span class="close" onClick={modalHandler}>
